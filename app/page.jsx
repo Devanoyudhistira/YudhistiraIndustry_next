@@ -1,17 +1,21 @@
 import Image from "next/image";
 import { createClient } from "./supabase/server";
+import { Navigation } from "@/components/navigation";
+import { Inter } from "next/font/google";
+import { Shopcard } from "./components/shop/productcard";
 
+
+const inter = Inter({})
 export default async function Home() {
   const supabase = await createClient()
   const { data } = await supabase.from("product_demo").select("*")
-  console.log(data)
   return (
     <>
-      {
-        data.map(e => 
-          <h1 key={e.id} > {e.nama_barang} </h1>
-        )
-      }
+     <Navigation/>
+     <h1 className={"text-3xl mt-15 font-black  " + inter.className } > Only For You </h1>  
+     <div className="grid grid-cols-2 mt-2 -ml-2 gap-2 w-screen justify-items-center h-auto overflow-x-hidden overflow-y-auto" >
+       <Shopcard data={data} />
+    </div>  
     </>
   );
 }

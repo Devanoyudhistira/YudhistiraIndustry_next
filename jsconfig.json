@@ -1,10 +1,10 @@
 {
-  "compilerOptions": {
-    "baseUrl": "src/",
+  "compilerOptions": {    
     "paths": {
       "@/*": ["./*"],
       "@/components/*": ["./app/components/*"],
-      "@/supabase/*": ["./app/supabase/*"]
+      "@/supabase/*": ["./app/supabase/*"],
+      "@/css": ["./app/globals.css"],
     }
   }
 }
