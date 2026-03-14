@@ -14,7 +14,7 @@ export function Navigation() {
             <div>
                 {searchmode &&
                     <div className="flex items-center" >                
-                        <input type="text" className={"rounded-xl bg-zinc-200 px-1 text-xl w-74 py-0.5 font-medium " + open.className} />
+                        <input type="text" className={"rounded-xl bg-zinc-200 px-1 text-xl w-92 py-0.5 font-medium " + open.className} />
                         <button onClick={ e => setsearchmode(false)} > <X size={40} /> </button>
                     </div>
                 }
