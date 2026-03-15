@@ -8,7 +8,7 @@ import { Shopcard } from "./components/shop/productcard";
 const inter = Inter({})
 export default async function Home() {
   const supabase = await createClient()
-  const { data } = await supabase.from("product_demo").select("*")
+  const { data } = await supabase.from("product_demo").select("*") 
   return (
     <>
      <Navigation/>
