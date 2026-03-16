@@ -1,4 +1,4 @@
-export default async function purchase(e, price, name, id,namapembeli,emailpembeli,nomorpembeli) {
+export default async function purchase(e,id,quantity,namapembeli,emailpembeli,nomorpembeli) {
   e.preventDefault();
   const transaction = await fetch("api/purchase/", {
     method: "POST",

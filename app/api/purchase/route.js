@@ -30,7 +30,7 @@ export async function POST(Request) {
       quantity: quantity,
     },
     customer_details: {
-      name: namapembeli,
+      first_name: namapembeli,
       email: emailpembeli,
       phone: nomorpembeli,
     },
