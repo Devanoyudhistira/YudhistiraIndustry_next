@@ -10,19 +10,7 @@ const inter = Inter({})
 
 export function Shopcard({ data }) {
 
-    useEffect(e => {
-        const link = "https://app.sandbox.midtrans.com/snap/snap.js"
-        const script = document.createElement("script")
-        script.src = link
-        script.setAttribute("data-client-key", process.env.NEXT_MIDTRANS_CLIENT)
-        script.async = true
-
-        document.body.appendChild(script)
-
-        return () => {
-            document.body.removeChild(script)
-        }
-    }, [])
+    
 
     const [purchaseloading, setpurchaseloading] = useState(false)
     const [popup, setpopup] = useState(false)

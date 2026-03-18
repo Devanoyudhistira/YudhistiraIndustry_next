@@ -14,14 +14,16 @@ export async function POST(Request) {
     harga,
     quantity,
     id,    
+    namapembeli,
     emailpembeli,
     nomorpembeli,
+    grossprice
   } = await Request.json();
 
   let parameter = {
     transaction_details: {
-      order_id: Math.floor(Math.random() * 10),
-      gross_amount: harga * quantity,
+      order_id: Math.ceil( Math.floor(Math.random() * 1000).toString() + id),
+      gross_amount: grossprice,
     },
     item_details: {
       name: produk,

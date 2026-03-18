@@ -9,11 +9,10 @@ export default async function productslug({ params }) {
 
     const supabase = await createClient()
 
-    const { data } = await supabase.from("product_demo").select("*").eq("id", slug).single()
-    console.log(data)    
+    const { data } = await supabase.from("product_demo").select("*").eq("id", slug).single()    
 
 
     return (
-       <Productpage data={data} />
+       <Productpage data={data} id={slug} />
     )
 }

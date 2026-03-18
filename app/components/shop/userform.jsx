@@ -1,44 +1,57 @@
 "use client"
-
-import purchase from "@/app/actions/purchase/purchase"
 import { Inter, Open_Sans } from "next/font/google"
 import { motion, AnimatePresence } from "motion/react"
 import { X } from "react-bootstrap-icons"
 import Backdrop from "../backdrop"
+import { useState } from "react"
 
 const inter = Inter({})
 const open = Open_Sans({})
 
-export default function Userform({ id, closehandle, closecondition }) {
-    return (       
-            <AnimatePresence initial={false}>
-                {
-                    closecondition &&
-                    <motion.form initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0 }}
-                        onSubmit={e => purchase(e, id, quantity, "namapembeli", "emailpembeli", "nomer hp pembeli")} className="bg-zinc-100 shadow-[1px_1px_10px_black] w-[95vw] h-max px-2 py-1 flex flex-col justify-evenly items-start fixed top-10 border-3 rounded-md gap-2"  >
+export default function Userform({ id, closehandle, closecondition, quantity, purchase }) {
 
-                        <div className="flex justify-between w-full items-center" >
-                            <h1 className={"text-4xl justify-self-center font-bold capitalize self-center " + open.className}  > Tolong Isi </h1>
-                            <button type="button" onClick={closehandle} className="self-end" > <X size={50} /> </button>
-                        </div>
-                        <label htmlFor="nama">
-                            <h1 className="userformlabel" > Nama Lengkap </h1>
-                            <input type="text" className="userform" name="nama" id="nama" />
-                        </label>
-                        <label htmlFor="email">
-                            <h1 className="userformlabel" > Email </h1>
-                            <input type="email" className="userform" name="email" id="email" />
-                        </label>
-                        <label htmlFor="nomer">
-                            <h1 className="userformlabel" > Nomer Telepon </h1>
-                            <input className="userform" type="tel" name="nomer" id="nomer" />
-                        </label>
+    const [name,setname] = useState("")
+    const [email,setemail] = useState("")
+    const [nomor,setnomor] = useState("")    
 
-                        <button onClick={purchase} className={"text-2xl focus:scale-90 focus:bg-zinc-50 focus:text-zinc-950 transition self-center border-4 rounded-[18px] px-3 py-1.5 bg-zinc-900 text-zinc-50 font-semibold  " + open.className} > Konfirmasi </button>
+    return (
 
-                    </motion.form>}
-            </AnimatePresence>
+     <AnimatePresence>
+  {closecondition && (
+    <Backdrop onClick={closehandle}>
+      <motion.form
+        key="form"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}
+        onClick={(e) => e.stopPropagation()}
+        onSubmit={(e) => purchase(e, id, quantity,name,email,nomor)}
+        className="bg-zinc-100 shadow-[1px_1px_10px_black] w-[95vw] px-2 py-1 flex flex-col fixed top-10 rounded-md gap-2"
+      >
+        <div className="flex justify-between w-full items-center">
+          <h1 className={"text-4xl font-bold " + open.className}>
+            Tolong Isi
+          </h1>
+          <button type="button" onClick={closehandle}>
+            <X size={50} />
+          </button>
+        </div>
+
+        <label htmlFor="nama">Nama Lengkap</label>
+        <input onChange={e => setname(e.currentTarget.value)} className="userform" type="text" name="nama" id="nama" required />
+
+        <label htmlFor="email">Email</label>
+        <input onChange={e => setemail(e.currentTarget.value)} className="userform" type="email" name="email" id="email" required />
+
+        <label htmlFor="nomer">Nomer Telepon</label>
+        <input onChange={e => setnomor(e.currentTarget.value)} className="userform" type="number" name="nomer" id="nomer" required />
+
+        <button className={"text-2xl self-center border-4 rounded-[18px] px-3 py-1.5 bg-zinc-900 text-zinc-50 " + open.className}>
+          Konfirmasi
+        </button>
+      </motion.form>
+    </Backdrop>
+  )}
+</AnimatePresence>
     )
 }
