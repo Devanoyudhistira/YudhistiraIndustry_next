@@ -11,6 +11,6 @@ export default function Buttonundo(){
       router.push("/");
     }}
     return(
-        <button onClick={undo} > <ArrowLeft size={30} /></button>
+        <button onClick={undo} className="cursor-pointer" > <ArrowLeft size={30} /></button>
     )
 }

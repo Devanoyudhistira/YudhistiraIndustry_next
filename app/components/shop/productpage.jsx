@@ -6,14 +6,17 @@ import Userform from "./userform"
 import Backdrop from "../backdrop"
 import supabase from "@/supabase/supabase";
 
+
+
 export default function Productpage({ data, id }) {
     const [openuser, setopenuser] = useState(false)
     const [quantity, setquantity] = useState(1)
     const [grossprice, setgrossprice] = useState(data.harga * quantity)
 
+    const baseurl = window.location.origin
 
 
-    async function purchase(e, id, quantity,nama_pembeli,email_pembeli,nomor_pembeli) {
+    async function purchase(e, id, quantity, nama_pembeli, email_pembeli, nomor_pembeli) {
         e.preventDefault();
         // console.log(id)  
         const { data } = await supabase.from("product_demo").select("harga,nama_barang").eq("id", id).single()
@@ -21,7 +24,7 @@ export default function Productpage({ data, id }) {
         console.log(data.harga * quantity)
 
 
-        const transaction = await fetch("http://localhost:3000/api/purchase", {
+        const transaction = await fetch(`${baseurl}/api/purchase`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -40,14 +43,14 @@ export default function Productpage({ data, id }) {
         const token = await transaction.json();
         console.log(token);
         window.snap.pay(token, {
-            onSuccess: function (res) {
-                console.log(res);
+            onSuccess: function (result) {
+                window.location.href = "/";
             },
-            onPending: function (res) {
-                console.log(res);
+            onPending: function (result) {
+                window.location.href = "/";
             },
-            onError: function (res) {
-                console.log(res);
+            onError: function (result) {
+                window.location.href = "/";
             },
             onClose: function (res) {
                 console.log(res);
