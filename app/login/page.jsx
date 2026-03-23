@@ -1,18 +1,14 @@
 import Login from "../actions/login/login";
+import Loginpage from "../components/login/loginpage";
 
-export default function Loginpage(){
-    return(
-        <form action={Login} className="flex px-3 py-1 flex-col gap-2 items-center bg-blue-400" >
-            <h1> Login </h1>
-            <label htmlFor="email">
-                <h1>Email</h1>
-                <input type="email" name="email" id="email" />
-            </label>
-            <label htmlFor="password">
-                <h1>Email</h1>
-                <input type="password" name="password" id="password" />
-            </label>
-            <button type="submit" className="p-2 border-2" >Login</button>
-        </form>
+export default function Page() {
+    return (
+        <div className="w-screen h-screen overflow-x-hidden flex-col gap-3  flex items-center justify-center" >
+            <div className="flex flex-col justify-center items-start mb-10 text-center  " >
+                <h1 className="text-6xl self-center font-black mb-0.5" > Brand </h1>
+                <h3 className="text-2xl font-bold " > start manage your business </h3>
+            </div>
+            <Loginpage action={Login} />
+        </div>
     )
 }

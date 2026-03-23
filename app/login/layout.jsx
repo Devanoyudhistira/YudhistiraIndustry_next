@@ -1,7 +1,11 @@
 import "@/css"
+import { Open_Sans } from "next/font/google"
+
+const sans = Open_Sans({})
+
 export default function Loginlayout({children}){
     return (
-    <main className="w-screen h-screen bg-red-600 flex justify-center items-center" >
+    <main  className={"w-screen h-screen flex justify-center items-center  " + sans.className } >
         {children}
     </main>)
 }
