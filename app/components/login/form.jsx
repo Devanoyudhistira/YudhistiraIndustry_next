@@ -24,14 +24,14 @@ export default function Form({ loginfunc, pending, result }) {
                     {!pending ? "Login" : <span className="flex items-center justify-center gap-3" > <ClipLoader className="text-zinc-900 text-3xl" /> loading </span>} </button>
             </form>
             <footer
-                class=" flex items-center justify-center bg-zinc-50/80 fixed bottom-0 left-0 border-t border-[#c6c6cd]/20 w-full py-8">
+                className=" flex items-center justify-center bg-zinc-50/80 fixed bottom-0 left-0 border-t border-[#c6c6cd]/20 w-full py-8">
                 <div
-                    class="max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center px-3 gap-2">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
+                    className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center px-3 gap-2">
+                    <div className="flex flex-col md:flex-row items-center gap-8">
                         <span class="text-xl font-black text-zinc-900 ">Yudhistira Industry</span>
                     </div>
                     <div
-                        class="text-zinc-600  font-inter text-xs  uppercase">
+                        className="text-zinc-600  font-inter text-xs  uppercase">
                         © 2026 Yudhistira Industry. All rights reserved.
                     </div>
                 </div>

@@ -19,9 +19,7 @@ export default function Productpage({ data, id }) {
     async function purchase(e, id, quantity, nama_pembeli, email_pembeli, nomor_pembeli) {
         e.preventDefault();
         // console.log(id)  
-        const { data } = await supabase.from("product_demo").select("harga,nama_barang").eq("id", id).single()
-
-        console.log(data.harga * quantity)
+        const { data } = await supabase.from("product_demo").select("harga,nama_barang").eq("id", id).single()        
 
 
         const transaction = await fetch(`${baseurl}/api/purchase`, {

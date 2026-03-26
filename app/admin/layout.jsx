@@ -23,7 +23,7 @@ export default async function Adminlayout({ children }) {
     return (
         <>
             <Navigation logout={logout} />
-            <main className={"mt-16 py-0.5 overflow-hidden  " + montserrat.className} >
+            <main className={"mt-19 py-0.5 pb-30 overflow-x-hidden  " + montserrat.className} >
 
                 {children}
             </main>

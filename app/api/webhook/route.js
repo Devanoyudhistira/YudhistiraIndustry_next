@@ -13,6 +13,7 @@ export async function POST(req) {
   const customername = body.customer_details.full_name;
   const customeremail = body.customer_details.email;
   const customernumber = body.customer_details.phone;
+  const grossprice =  body.gross_amount
 
   if (status !== "pending") {
     const { error } = await supabase.from("invoice_new").insert({
@@ -21,6 +22,7 @@ export async function POST(req) {
       nama: customername,
       nomor_hp: customernumber,
       status: status,
+      pembayaran:grossprice
     });
   }
 
