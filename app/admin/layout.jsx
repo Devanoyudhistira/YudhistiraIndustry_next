@@ -6,7 +6,14 @@ import logout from "../actions/login/logout"
 
 const montserrat = Montserrat({})
 
+export const metadata = {
+  title: "Admin-page",
+  description: "An admin dashboard for yudhistira industry",
+};
+
 export default async function Adminlayout({ children }) {
+
+    
     const supabase = await createClient()
 
     const { data: { session } } = await supabase.auth.getSession()

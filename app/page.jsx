@@ -1,13 +1,13 @@
 import Image from "next/image";
-import { createClient } from "./supabase/server";
 import { Navigation } from "@/components/navigation";
 import { Inter } from "next/font/google";
 import { Shopcard } from "./components/shop/productcard";
+import supabase from "./supabase/supabase";
 
 
 const inter = Inter({})
-export default async function Home() {
-  const supabase = await createClient()
+export default async function Home() {  
+
   const { data } = await supabase.from("product_demo").select("*") 
   return (
     <>
