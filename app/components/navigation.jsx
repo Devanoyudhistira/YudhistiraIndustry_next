@@ -3,15 +3,20 @@ import { useState } from "react"
 import { X } from "react-bootstrap-icons"
 import { Search } from "react-bootstrap-icons"
 import { Open_Sans } from "next/font/google"
+import { Person } from "react-bootstrap-icons"
+import Link from "next/link"
 
 const open = Open_Sans({})
 
-export function Navigation() {
+export function Navigation({user}) {
     const [searchmode, setsearchmode] = useState(false)
     return (
         <nav className="border-b-2 w-screen left-0 h-13 z-100 fixed top-0 bg-zinc-100 flex pl-2 pr-1 justify-between items-center" >
            {!searchmode && <h1 className={open.className + " text-2xl font-bold"} > YudhistiraIndustry  </h1>}
-            <div>
+            <div className="flex gap-2 items-center" >
+          {!searchmode && user && 
+          <Link href={"/admin"} className="w-10 h-10 p-2 flex items-center justify-center rounded-xl bg-green-400 " > <Person className="text-3xl" /> 
+          </Link>}
                 {searchmode &&
                     <div className="flex items-center" >                
                         <input type="text" className={"rounded-xl bg-zinc-200 px-1 text-xl w-92 py-0.5 font-medium " + open.className} />
