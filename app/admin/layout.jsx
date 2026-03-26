@@ -1,17 +1,25 @@
 import { redirect } from "next/navigation"
 import { createClient } from "../supabase/server"
+import Navigation from "../components/admin/navigation"
+import { Montserrat } from "next/font/google"
+import logout from "../actions/login/logout"
 
-export default async function Adminlayout({children}){
+const montserrat = Montserrat({})
+
+export default async function Adminlayout({ children }) {
     const supabase = await createClient()
 
-    const {data:{session}} = await supabase.auth.getSession()
-    if(!session?.user){
+    const { data: { session } } = await supabase.auth.getSession()
+    if (!session?.user) {
         redirect("/")
     }
-    return(
-        <main>
-            <h1> {session?.user ? "anda adalah admin" : "anda bukan admin"} </h1>
-            {children}
-        </main>
+    return (
+        <>
+            <Navigation logout={logout} />
+            <main className={"mt-16 py-0.5 overflow-hidden  " + montserrat.className} >
+
+                {children}
+            </main>
+        </>
     )
 }

@@ -1,9 +1,14 @@
+"use client"
+import { useActionState } from "react";
 import Form from "./form";
 
-export default function Loginpage({action}){
-    return(
+export default function Loginpage({ action }) {
+    const [state, func, pending] = useActionState(action,false)
+    
+
+    return (
         <>
-        <Form loginfunc={action} />
+            <Form result={state} loginfunc={func} pending={pending} />
         </>
     )
 }

@@ -14,3 +14,25 @@ input{
 .userformlabel{
     @apply text-xl font-bold capitalize
 }
+
+.navline{
+  @apply inline-block w-12 h-1 bg-zinc-950
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    @apply transition border-2 
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    @apply rounded-full bg-zinc-100 
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-zinc-200 
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-100 border-2 
+  }
+}

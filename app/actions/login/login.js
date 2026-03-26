@@ -1,10 +1,10 @@
 "use server"
 import { createClient } from "@/app/supabase/server";
 import { revalidatePath } from "next/cache";
-import { NextResponse } from "next/server";
+import { redirect } from "next/navigation";
 
 
-export default async function Login(formdata){
+export default async function Login(prevstate,formdata){
     const supabase = await createClient()
     const email = formdata.get("email")
     const password = formdata.get("password")
@@ -16,7 +16,8 @@ export default async function Login(formdata){
 
     if(error){
         console.log(error)
-        return NextResponse({error:"password is wrong",code:400})
-    }    
-    revalidatePath('/login')
+        return {error:true,code:error.code,message:"Your credential is wrong try again"}        
+    }     
+    revalidatePath("/admin")
+    redirect("/admin")
 }
