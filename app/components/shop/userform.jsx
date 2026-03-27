@@ -38,13 +38,13 @@ export default function Userform({ id, closehandle, closecondition, quantity, pu
         </div>
 
         <label htmlFor="nama">Nama Lengkap</label>
-        <input onChange={e => setname(e.currentTarget.value)} className="userform" type="text" name="nama" id="nama" required />
+        <input onChange={e => setname(e.currentTarget.value)} autocomplete='off' className="userform" type="text" name="nama" id="nama" required />
 
         <label htmlFor="email">Email</label>
-        <input onChange={e => setemail(e.currentTarget.value)} className="userform" type="email" name="email" id="email" required />
+        <input onChange={e => setemail(e.currentTarget.value)} autocomplete='off' className="userform" type="email" name="email" id="email" required />
 
         <label htmlFor="nomer">Nomer Telepon</label>
-        <input onChange={e => setnomor(e.currentTarget.value)} className="userform" type="number" name="nomer" id="nomer" required />
+        <input onChange={e => setnomor(e.currentTarget.value)} autocomplete='off' className="userform" type="number" name="nomer" id="nomer" required />
 
         <button className={"text-2xl self-center border-4 rounded-[18px] px-3 py-1.5 bg-zinc-900 text-zinc-50 " + open.className}>
           Konfirmasi
