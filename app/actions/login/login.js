@@ -18,6 +18,6 @@ export default async function Login(prevstate,formdata){
         console.log(error)
         return {error:true,code:error.code,message:"Your credential is wrong try again"}        
     }     
-    revalidatePath("/admin")
-    redirect("/admin")
+    revalidatePath("/admin/home")
+    redirect("/admin/home")
 }

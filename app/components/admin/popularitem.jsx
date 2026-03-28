@@ -4,7 +4,7 @@ export default function Popularitem() {
             <div className="w-full bg-black h-30 mt-2 rounded-xl" ></div>
             <h1 className="-mt-6 font-bold text-md capitalize tracking-wide" > nama barang </h1>
             <div className="flex w-full justify-between items-center" >
-                <h5 className="text-[15px] font-medium" >200 Sales</h5>
+                <h5 className="text-[15px] font-medium" >200 Terjual</h5>
                 <h2 className="text-[15px] font-semibold" >Rp 1.000.000</h2>
             </div>
         </div>

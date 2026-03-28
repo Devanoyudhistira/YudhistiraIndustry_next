@@ -1,4 +1,5 @@
 import convertToMoney from "@/app/function/convert";
+import truncate from "@/app/function/truncat";
 import { Cash } from "react-bootstrap-icons";
 
 export default function Invoiceitem({ namaitem, harga, status, tanggal, user }) {
@@ -23,7 +24,7 @@ export default function Invoiceitem({ namaitem, harga, status, tanggal, user }) 
                 <div className="flex gap-2 justify-center items-center" >
                     <h1 className="w-min h-min p-2 bg-sky-200 rounded-md font-semibold text-md " > DY </h1>
                     <div className="flex flex-col items-start" >
-                        <h3 className="font-semibold text-md" >{user}</h3>
+                        <h3 className="font-semibold text-md" >{truncate(user,18)}</h3>
                         <h4 className="font-semibold text-xs" >{tanggal}</h4>
                     </div>
                 </div>
