@@ -5,6 +5,7 @@ import { Search } from "react-bootstrap-icons"
 import { Open_Sans } from "next/font/google"
 import { Person } from "react-bootstrap-icons"
 import Link from "next/link"
+import { Cart2 } from "react-bootstrap-icons"
 
 const open = Open_Sans({})
 
@@ -23,8 +24,8 @@ export function Navigation({user}) {
                         <button onClick={ e => setsearchmode(false)} > <X size={40} /> </button>
                     </div>
                 }
-                {!searchmode && <button onClick={() => setsearchmode(true)} className="bg-zinc-100 w-max h-max p-1.5 rounded-md shadow-[0.5px_0.5px_2px_black]" >
-                    <Search size={30} className="text-zinc-900" />
+                {!searchmode && <button onClick={() => setsearchmode(true)} className="bg-zinc-50 w-max h-max p-1.5 rounded-md shadow-[0.5px_0.5px_2px_black]" >
+                    <Cart2 size={30} className="text-zinc-900" />
                 </button>}
             </div>
         </nav>

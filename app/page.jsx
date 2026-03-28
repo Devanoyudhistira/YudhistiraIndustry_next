@@ -15,7 +15,7 @@ export default async function Home() {
     <>
      <Navigation user={session} />
      <h1 className={"text-3xl mt-15 font-black  " + inter.className } > Only For You </h1>  
-     <div className="grid grid-cols-2 mt-2 -ml-2 gap-2 w-screen justify-items-center h-auto overflow-x-hidden overflow-y-auto" >
+     <div className="grid grid-cols-2 mt-2 -ml-2 py-2 px-2 gap-x-2 gap-y-2.5 w-screen justify-items-center h-auto overflow-x-hidden overflow-y-auto" >
        <Shopcard data={data} />
     </div>  
     </>
