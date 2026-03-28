@@ -15,7 +15,7 @@ export function Navigation({user}) {
            {!searchmode && <h1 className={open.className + " text-2xl font-bold"} > YudhistiraIndustry  </h1>}
             <div className="flex gap-2 items-center" >
           {!searchmode && user && 
-          <Link href={"/admin"} className="w-10 h-10 p-2 flex items-center justify-center rounded-xl bg-green-400 " > <Person className="text-3xl" /> 
+          <Link href={"/admin/home"} className="w-10 h-10 p-2 flex items-center justify-center rounded-xl bg-green-400 " > <Person className="text-3xl" /> 
           </Link>}
                 {searchmode &&
                     <div className="flex items-center" >                

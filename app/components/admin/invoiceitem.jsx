@@ -6,8 +6,8 @@ export default function Invoiceitem({ namaitem, harga, status, tanggal, user }) 
         let style = ""
         switch (statusproduct) {
             case "lunas":
-                style = "bg-green-400"
-                break;            
+                style = "bg-green-300"
+                break;
             case "error":
                 style = "bg-red-600"
                 break;
@@ -18,19 +18,20 @@ export default function Invoiceitem({ namaitem, harga, status, tanggal, user }) 
         return style
     }
     return (
-        <div className="w-[98%] h-20 rounded-2xl bg-zinc-200 flex px-2 justify-between items-center" >
-            <div className="flex w-max items-center gap-2" >
-                <div className="w-10 h-10 bg-blue-400 rounded-xl flex items-center justify-center" >
-                    Dn
+        <div className="w-[96%] -ml-5 self-center h-22 rounded-xl bg-zinc-50 shadow-[1px_1px_3px_black] border border-zinc-900 flex flex-col px-1 py-2 justify-between items-center" >
+            <div className="flex px-2 justify-between items-center w-full" >
+                <div className="flex gap-2 justify-center items-center" >
+                    <h1 className="w-min h-min p-2 bg-sky-200 rounded-md font-semibold text-md " > DY </h1>
+                    <div className="flex flex-col items-start" >
+                        <h3 className="font-semibold text-md" >{user}</h3>
+                        <h4 className="font-semibold text-xs" >{tanggal}</h4>
+                    </div>
                 </div>
-                <div>
-                    <h1 className="tracking-wide text-md font-medium" >{namaitem}</h1>
-                    <p className="tracking-wider text-xs font-thin" > {user} | {tanggal} </p>
-                </div>
+                <div className={`${statusColor(status)} p-1 rounded-md text-xs font-medium capitalize`} > {status} </div>
             </div>
-            <div className="mr-3 w-20 flex justify-center items-center flex-col " >
-                <h1 className="text-[17px] font-medium" > {convertToMoney(harga)} </h1>
-                <div className={`${statusColor(status)} font-medium w-max text-center text-md tracking-wide rounded-md px-1 py-1`} > {status} </div>
+            <div className="w-full flex justify-between px-2 items-center ">
+                <h1 className="text-xl font-semibold" > {namaitem} </h1>
+                <h1 className="text-md font-semibold" > {convertToMoney(harga)} </h1>
             </div>
         </div>
     )

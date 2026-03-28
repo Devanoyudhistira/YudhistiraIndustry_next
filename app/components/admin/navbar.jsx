@@ -2,7 +2,7 @@ import { X } from "react-bootstrap-icons";
 
 export default function Navbar({logout,closefunc}){
     return(
-        <div className="w-[60vw] h-screen pb-10 px-2 flex flex-col items-stretch justify-between fixed top-0 right-0 bg-zinc-950 z-104" >            
+        <div className="w-[60vw] h-screen pb-10 px-2 flex flex-col items-stretch justify-between fixed top-0 left-0 bg-zinc-950 z-104" >            
 
             <button className=" self-end" onClick={closefunc} > <X size={80} color="white"/> </button>
             <form className="self-center w-full " action={logout}>
