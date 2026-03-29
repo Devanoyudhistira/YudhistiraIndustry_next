@@ -14,7 +14,7 @@ export default function Navigation({ logout }) {
                 <span className="navline" ></span>
                 <span className="navline" ></span>
             </button>
-            <h1 className="text-3xl font-semibold capitalize" >{lastSegment}</h1>
+            <h1 className="text-3xl font-semibold capitalize" >{lastSegment !== "create" ?  lastSegment : "New Product"}</h1>
             {opennav && <Navbar closefunc={e => setoepennav(false)} logout={logout} />}
         </nav>
     )

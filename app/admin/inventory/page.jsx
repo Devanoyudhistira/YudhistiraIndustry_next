@@ -1,5 +1,6 @@
 import Selleditem from "@/app/components/admin/selleditem";
 import supabase from "@/app/supabase/supabase";
+import Link from "next/link";
 import { Basket } from "react-bootstrap-icons";
 import { Plus } from "react-bootstrap-icons";
 import { FilterLeft } from "react-bootstrap-icons";
@@ -28,7 +29,7 @@ export default async function Inventory() {
             <div className="mt-3 px-3 flex gap-2 flex-col justify-center items-center" >
                 {data.map(e => <Selleditem harga={e.harga} key={e.id} gambar={e.Product_image} nama={e.nama_barang} stok={1} Terjual={e.product_number} />)}
             </div>
-            <button className="fixed bottom-5 right-4 bg-zinc-900 shadow-xs shadow-zinc-200 w-12 h-12 flex items-center justify-center text-6xl rounded-xl " > <Plus color="white" /> </button>
+            <Link href={"/admin/inventory/create"} > <button className="fixed bottom-5 right-4 bg-zinc-900 shadow-xs shadow-zinc-200 w-12 h-12 flex items-center justify-center text-6xl rounded-xl " > <Plus color="white" /> </button></Link>
         </div>
     )
 }
