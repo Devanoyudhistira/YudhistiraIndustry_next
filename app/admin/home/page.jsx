@@ -8,11 +8,12 @@ import convertToMoney from "@/function/convert"
 import moment from "moment"
 import Link from "next/link"
 import Popularitem from "@/app/components/admin/popularitem"
+import { CreditCard } from "react-bootstrap-icons"
 
-export default async function Admin() {
-    const populerdata = await supabase.from("invoice_new").select("nama_barang")
+export default async function Admin() {    
+    const popularitem = await supabase.from("product_demo").select("*").order("product_number",{ascending:false}).limit(3)
     const invoicedata = await supabase.from("invoice_new").select("*").limit(3).order("created_at", { ascending: false })
-    const uangpembayaran = await supabase.from("invoice_new").select("pembayaran")
+    const uangpembayaran = await supabase.from("invoice_new").select("pembayaran").eq("status","settlement")
     var uang = uangpembayaran.data.reduce((acc, obj) => { return acc + parseFloat(obj.pembayaran); }, 0);
     const uangtotal = convertToMoney(uang)
     return (
@@ -23,7 +24,7 @@ export default async function Admin() {
             </div>
             <div className="w-screen px-6 grid  grid-cols-2 gap-5 overflow-x-auto overflow-y-hidden h-auto py-2 " >
                 <Infocard icon={<GraphUp size={20} className="text-green-500" />} invoname={"total pemasukan"} invovalue={uangtotal} />
-                <Infocard icon={<CurrencyDollar size={20} className="text-green-500" />} invoname={"jumlah pembelian"} invovalue={invoicedata.data.length} />
+                <Infocard icon={<CreditCard size={20} className="text-green-500" />} invoname={"jumlah pembelian"} invovalue={invoicedata.data.length} />
                 <Infocard icon={<CashCoin size={20} className="text-green-500" />} invoname={"barang terlaris"} invovalue={"yaris xl"} />
                 <Infocard icon={<CurrencyDollar size={20} className="text-green-600" />} invoname={"total pengeluaran"} invovalue={"50.000.000"} />
             </div>
@@ -41,12 +42,8 @@ export default async function Admin() {
                     <h1 className="text-xl font-semibold" >Barang Populer</h1>
                     <Link href={"/admin/inventory"} className="text-md font-medium " > lihat semua </Link>
                 </div>
-                <div className="flex gap-3" >
-                    <Popularitem />
-                    <Popularitem />
-                    <Popularitem />
-                    <Popularitem />
-                    <Popularitem />
+                <div className="flex gap-3" >          
+                    {popularitem.data.map(e => <Popularitem key={e.id} gambar={e.Product_image} nama={e.nama_barang} harga={e.harga} sold={e.product_number} /> )}                                                          
                 </div>
             </div>
         </>

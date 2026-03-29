@@ -48,7 +48,8 @@ export async function POST(Request) {
     nomor_hp: parameter.customer_details.phone,
     status: "pending",
     pembayaran: parameter.transaction_details.gross_amount,
-    nama_barang:parameter.item_details.name
+    nama_barang:parameter.item_details.name,
+    product_id:id
   }, {
     onConflict: "orderid"
   });

@@ -4,7 +4,7 @@ import { Filter } from "react-bootstrap-icons";
 import moment from "moment";
 
 export default async function Invoice() {
-    const { data } = await supabase.from("invoice_new").select("*")
+    const { data } = await supabase.from("invoice_new").select("*").order("created_at",{ascending:false})
     return (
         <div>
             <div className="flex w-full px-3 justify-between" >

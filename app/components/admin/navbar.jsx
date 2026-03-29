@@ -5,6 +5,7 @@ import Navitem from "./navitem";
 import { Receipt } from "react-bootstrap-icons";
 import { Archive } from "react-bootstrap-icons";
 import { HouseDoor } from "react-bootstrap-icons";
+import { Cart4 } from "react-bootstrap-icons";
 
 export default function Navbar({ logout, closefunc }) {
     return (
@@ -15,6 +16,7 @@ export default function Navbar({ logout, closefunc }) {
                     <Navitem close={closefunc} location={"/admin/home"} nama={<span className="flex gap-2 items-center" > <HouseDoor/> home</span>} />
                     <Navitem close={closefunc} location={"/admin/inventory"} nama={<span className="flex gap-2 items-center" > <Archive/> inventory </span>} />
                     <Navitem close={closefunc} location={"/admin/invoices"} nama={<span className="flex gap-2 items-center" > <Receipt/> invoices</span> } />
+                    <Navitem close={closefunc} location={"/"} nama={<span className="flex gap-2 items-center" > <Cart4/> Shopping Page</span> } />
                 </div>
             </div>
             <form className="self-center justify-self-end items-center justify-center mb-2 flex w-full bg-zinc-50 border border-zinc-100 " action={logout}>

@@ -12,22 +12,34 @@ export async function POST(req) {
   const customernumber = body.customer_details.phone;
   const grossprice = body.gross_amount;
 
-  const { error } = await supabase.from("invoice_new").upsert(
-    {
-      orderid: orderId,
-      email: customeremail,
-      nama: customername,
-      nomor_hp: customernumber,
-      status: "settlement",
-      pembayaran: grossprice,      
-    },
-    {
-      onConflict: "orderid",
-    },
-  );
+  const { error } = await supabase
+    .from("invoice_new")
+    .upsert(
+      {
+        orderid: orderId,
+        email: customeremail,
+        nama: customername,
+        nomor_hp: customernumber,
+        status: status,
+        pembayaran: grossprice,
+      },
+      {
+        onConflict: "orderid",
+      },
+    )
+    .single();
+
+  const dataid = await supabase
+    .from("invoice_new")
+    .select("product_id")
+    .eq("orderid", orderId)
 
   if (error) {
     console.log(error);
+    return;
+  }
+  if (status === "settlement") {
+    await supabase.rpc("increment_purchase_count", { product_id: 1 });
   }
 
   return NextResponse.json(body.fraud_status);
