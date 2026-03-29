@@ -28,7 +28,7 @@ export default function Productdetail({ data, clickhandler, quantity, setquantit
                         <div>
                             <h1 className="text-md font-medium tracking-wide" >quantity</h1>
                             <div className="flex bg-sky-200 justify-between gap-5 w-max px-2 items-center" >
-                                <button onClick={() => setquantity(quantity - 1)} > <DashLg size={24} /> </button>
+                                <button onClick={() => setquantity(quantity <= 1 ? quantity : quantity - 1)} > <DashLg size={24} /> </button>
                                 <h1 className={"text-2xl font-semibold "} > {quantity} </h1>
                                 <button onClick={() => setquantity(quantity + 1)} > <Plus size={30} /> </button>
                             </div>
@@ -38,8 +38,8 @@ export default function Productdetail({ data, clickhandler, quantity, setquantit
                             <h1 className="text-xl tracking-wider font-medium" > {convertToMoney(data.harga * quantity)}</h1>
                         </div>
                     </div>
-                    <button onClick={clickhandler} className="text-2xl tracking-wider bg-zinc-900 text-zinc-50 px-6 py-2 rounded-md  mt-3 flex items-center gap-2 font-semibold w-max h-min" > Checkout <ArrowRight/> </button>
-                </div>                
+                    <button onClick={clickhandler} className="text-2xl tracking-wider bg-zinc-900 text-zinc-50 px-6 py-2 rounded-md  mt-3 flex items-center gap-2 font-semibold w-max h-min" > Checkout <ArrowRight /> </button>
+                </div>
             </footer>
         </div>)
 }
