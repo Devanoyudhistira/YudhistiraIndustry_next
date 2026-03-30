@@ -18,7 +18,7 @@ export default async function Inventory() {
                 <input type="search" name="search" id="search" className="bg-zinc-50 px-0.5 w-70 rounded-md focus:border-zinc-950 font-medium transition py-2 text-md border-zinc-200 " placeholder="Cari Produk" />
                 <FilterLeft className="text-3xl bg-zinc-50 shadow-xs shadow-zinc-950 rounded-md w-12 h-10" />
             </label>
-            <div className="w-full h-30 bg-sky-950 px-6 py-4 relative rounded-xl mt-6 mb-3" >
+            <div className="w-full h-30 bg-gray-500 px-6 py-4 relative rounded-xl mt-6 mb-3" >
                 <h4 className="font-light text-xl text-zinc-50" > Total Barang </h4>
                 <h1 className="text-6xl font-semibold text-zinc-50" > {data.length} </h1>
                 <div className="absolute right-5 top-6 bg-gray-400 rounded-xl p-3" >

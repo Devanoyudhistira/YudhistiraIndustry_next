@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Selleditem({ nama, stok, Terjual, gambar, harga }) {
     return (
-        <div className="w-full h-max  rounded-xl bg-zinc-50 shadow-xs  shadow-zinc-900 flex-col py-2" >
+        <div className="w-full h-max  rounded-xl bg-zinc-50 shadow-2xs shadow-zinc-900 flex-col py-2" >
             <div className="w-full gap-2 px-2 flex justify-between" >
                 <div className="w-max flex items-start gap-2 " >
                     <Image src={gambar} alt={nama} height={100} width={100} className="bg-black w-18 h-18 rounded-md object-center object-cover" />

@@ -3,6 +3,9 @@
 input{
     @apply ring-0 outline-0 border-2 
 }
+textarea{
+    @apply ring-0 outline-0 border-none 
+}
 
 .quantitybutton{
     @apply  transition hover:scale-95 focus:scale-95 shadow-[1px_1px_1px_black] p-0.5

@@ -32,14 +32,14 @@ export async function POST(req) {
   const dataid = await supabase
     .from("invoice_new")
     .select("product_id")
-    .eq("orderid", orderId)
+    .eq("orderid", orderId).single()
 
   if (error) {
     console.log(error);
     return;
   }
   if (status === "settlement") {
-    await supabase.rpc("increment_purchase_count", { product_id: 1 });
+    await supabase.rpc("increment_purchase_count", { product_id: dataid.data.product_id });
   }
 
   return NextResponse.json(body.fraud_status);
