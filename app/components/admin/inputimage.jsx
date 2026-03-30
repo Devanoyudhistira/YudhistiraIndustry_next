@@ -30,7 +30,7 @@ export default function Inputimage() {
                     <h1 className="text-2xl font-semibold " >no image selected</h1>
             </div>}
             <input type="file" hidden onChange={handleFileChange} id="imageinput" name="imageinput" />
-        {preview && <Image src={preview} alt="imagepreview" className="w-full h-full border-2 border-green-300 object-cover object-center" width={100} height={100} />}
+        {preview && <Image src={preview} alt="imagepreview" className="w-83 h-full object-cover object-center" width={100} height={100} />}
         </label>
     </>
     )
