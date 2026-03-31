@@ -2,7 +2,10 @@
 import { NextResponse } from "next/server";
 import supabase from "@/app/supabase/supabase";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
+import { createSessionCookie } from "@/app/function/signature";
 export async function POST(req) {
+  const cookie = await cookies()
   const body = await req.json();
 
   const status = body.transaction_status;
@@ -26,8 +29,7 @@ export async function POST(req) {
       {
         onConflict: "orderid",
       },
-    )
-    .single();
+    )    
 
   const dataid = await supabase
     .from("invoice_new")
@@ -38,7 +40,7 @@ export async function POST(req) {
     console.log(error);
     return;
   }
-  if (status === "settlement") {
+  if (status === "settlement") {    
     await supabase.rpc("increment_purchase_count", { product_id: dataid.data.product_id });
   }
 
