@@ -6,18 +6,20 @@ import Inputname from "@/app/components/admin/inputname";
 import Inputprice from "@/app/components/admin/inputprice";
 import Inputstock from "@/app/components/admin/inputstock";
 import { useActionState } from "react";
-export default function Formaction({ createaction }) {
+import { Pencil } from "react-bootstrap-icons";
+export default function Formaction({ orignalid,originalimage,createaction,originaltext,originalprice,originalstock,originaldesc }) {
     const [result,action,loading] = useActionState(createaction,null)
     return (
         <form className="w-max h-max gap-2 mt-3 justify-center items-center flex flex-col" action={action} >
-            <Inputimage />
-            <Inputname category={"nama"} />
+            <input hidden type="text" value={orignalid || ""} name="id" />
+            <Inputimage originalvalue={originalimage} />
+            <Inputname originalvalue={originaltext} category={"nama"} />
             <div className="w-full flex justify-between items-center" >
-                <Inputprice />
-                <Inputstock />
+                <Inputprice originalvalue={originalprice} />
+                <Inputstock originalvalue={originalstock} />
             </div>
-            <Descriptioninput />
-            <Buttonsubmit />
+            <Descriptioninput originalvalue={originaldesc} />
+            <Buttonsubmit message={"Update"} icon={<Pencil/>} />
         </form>
     )
 }

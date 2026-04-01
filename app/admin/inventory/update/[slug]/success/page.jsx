@@ -2,6 +2,8 @@ import convertToMoney from "@/app/function/convert"
 import supabase from "@/app/supabase/supabase"
 import Image from "next/image"
 import Link from "next/link"
+import { Pen } from "react-bootstrap-icons"
+import { PencilFill } from "react-bootstrap-icons"
 import { Plus } from "react-bootstrap-icons"
 import { CheckCircle } from "react-bootstrap-icons"
 import { Check2 } from "react-bootstrap-icons"
@@ -15,9 +17,9 @@ export default async function Successcreate({ params }) {
     return (
 
         <div className="flex flex-col overflow-x-hidden px-1 items-center justify-evenly " >
-            <div className="flex items-center justify-center rounded-xl bg-green-300 text-green-500 p-4 " > <CheckCircle size={50}/> </div>
-            <h1 className="text-2xl font-semibold " > Product Berhasil Di Buat </h1>
-            <p className="text-md  text-center text-zinc-500" > produk anda yang bernama {data.nama_barang} sudah siap dijual </p>
+            <div className="flex items-center justify-center rounded-xl bg-green-300 text-green-500 p-4 " > <PencilFill size={50}/> </div>
+            <h1 className="text-2xl font-semibold " > Product Berhasil Di Update </h1>
+            <p className="text-md  text-center text-zinc-500" > produk anda yang bernama {data.nama_barang} berhasil diperbaru </p>
             <Image alt={data.nama_barang} width={1000} height={1000} className="w-80 h-50 object-cover object-center rounded-xl" src={data.Product_image.trimEnd()} />
             <section className="grid w-screen px-5 py-1 h-50 rounded-xl mt-5 bg-zinc-50 grid-cols-2  gap-3" >
                 <div className="bg-sky-100/80 w-full h-max px-2 py-4 rounded-xl col-span-2 text-center" >
@@ -35,7 +37,7 @@ export default async function Successcreate({ params }) {
             </section>
             <div className="w-full h-max px-2 py-1 flex flex-col gap-2" >
                 <Link className="bg-zinc-950 w-full h-12 py-1 rounded-xl text-zinc-50 font-bold text-xl flex items-center justify-center gap-3 capitalize" href={"/admin/home"} > Kembali ke Menu <ArrowRight/> </Link>
-                <Link className="bg-emerald-200 w-full h-12 py-1 rounded-xl text-zinc-950 font-bold text-xl flex items-center justify-center gap-1 capitalize" href={"/admin/inventory/create"}> Buat Produk Lagi <Plus size={40} /> </Link>                
+                <Link className="bg-emerald-200 w-full h-12 py-1 rounded-xl text-zinc-950 font-bold text-xl flex items-center justify-center gap-1 capitalize" href={`/admin/inventory/update/${data.id}`}> Lanjut edit <Pen size={20} /> </Link>                
             </div>
         </div>
 

@@ -2,8 +2,8 @@
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Images } from "react-bootstrap-icons"
-export default function Inputimage() {
-    const [preview, setPreview] = useState(null)
+export default function Inputimage({originalvalue}) {
+    const [preview, setPreview] = useState(originalvalue || null)
     const [file, setFile] = useState(null)
 
     const handleFileChange = (e) => {
@@ -29,7 +29,7 @@ export default function Inputimage() {
                     <Images  size={130} />
                     <h1 className="text-2xl font-semibold " >no image selected</h1>
             </div>}
-            <input type="file" hidden onChange={handleFileChange} id="imageinput" name="imageinput" />
+            <input type="file" hidden  onChange={e => handleFileChange(e)} id="imageinput" name="imageinput" />
         {preview && <Image src={preview} alt="imagepreview" className="w-83 h-full object-cover object-center" width={100} height={100} />}
         </label>
     </>

@@ -11,7 +11,7 @@ export default function Productdetail({ data, clickhandler, quantity, setquantit
 
     return (
         <div className=" h-auto flex flex-col justify-between items-center mt-15 relative pb-12" >
-            <Image width={150} height={150} alt={data.nama_barang} className="w-94 h-90 -ml-4 rounded-xl overflow-hidden object-cover object-center" src={data.Product_image} />
+            <Image width={150} height={150} alt={data.nama_barang} className="w-94 h-90 -ml-4 rounded-xl overflow-hidden object-cover object-center" src={data.Product_image.trimEnd()} />
             <div className="flex flex-col w-full mt-2 px-3 h-54 " >
                 <div className="flex flex-col w-full justify-between " >
                     <h1 className={"text-6xl font-bold "} > {data.nama_barang} </h1>

@@ -41,7 +41,7 @@ export async function POST(Request) {
   };
 
   cookie.set("pembayaran",parameter.transaction_details.order_id)
-  cookie.set("orderid",parameter.transaction_details.order_id)
+  cookie.set("orderid",parameter.transaction_details.order_id,{secure:true,maxAge:70})
 
   const { error } = await supabase.from("invoice_new").upsert(
     {
@@ -53,6 +53,7 @@ export async function POST(Request) {
       pembayaran: parameter.transaction_details.gross_amount,
       nama_barang: parameter.item_details.name,
       product_id: id,
+      quantity:quantity
     },
     {
       onConflict: "orderid",

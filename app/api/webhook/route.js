@@ -33,7 +33,7 @@ export async function POST(req) {
 
   const dataid = await supabase
     .from("invoice_new")
-    .select("product_id")
+    .select("product_id,quantity")
     .eq("orderid", orderId).single()
 
   if (error) {
@@ -42,6 +42,7 @@ export async function POST(req) {
   }
   if (status === "settlement") {    
     await supabase.rpc("increment_purchase_count", { product_id: dataid.data.product_id });
+    await supabase.rpc("reduce_stock_count", { product_id: dataid.data.product_id,pengurangan:dataid.data.quantity });
   }
 
   return NextResponse.json(body.fraud_status);

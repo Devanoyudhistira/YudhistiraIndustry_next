@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 export default function Navigation({ logout }) {
     const pathname = usePathname()
      const lastSegment = pathname.split("/").filter(Boolean).pop()
+     const routename = pathname.split("/").at(-2) === "update"
     const [opennav, setoepennav] = useState(false)
     return (
         <nav className="w-screen h-15 px-2 fixed left-0 to-0  flex justify-between border-b-2 bg-zinc-100 items-center z-100" >

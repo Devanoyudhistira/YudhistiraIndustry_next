@@ -5,6 +5,7 @@ import supabase from "./app/supabase/supabase";
 export default async function proxy(request) {
   const cookie = await cookies();
   const order = cookie.get("pembayaran");
+  const orderid = cookie.get("orderid")
   const pathname = request.nextUrl.pathname;
 
   if (order) {
@@ -18,7 +19,7 @@ export default async function proxy(request) {
       return NextResponse.redirect(new URL("/purchase", request.url));
     }
     return NextResponse.next();
-  }
+  }  
 }
 
 export const config = {

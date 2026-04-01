@@ -11,7 +11,7 @@ export const metadata = {
 
 export default async function Layout({ children }) {
 
-    return (<main className={"mt-19 py-0.5 pb-30 overflow-x-hidden  " + manrope.className} >
+    return (<main className={" py-2 overflow-x-hidden  " + manrope.className} >
 
         {children}
     </main>)

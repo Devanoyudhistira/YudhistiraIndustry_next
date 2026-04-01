@@ -1,8 +1,8 @@
-import { Geist, Geist_Mono,Open_Sans } from "next/font/google";
+import { Geist, Geist_Mono,Inter,Open_Sans } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "./components/navigation";
 
-const poppins = Open_Sans({})
+const poppins = Inter({})
 
 export const metadata = {
   title: "YudhistiraIndustry",
