@@ -9,6 +9,7 @@ import moment from "moment"
 import Link from "next/link"
 import Popularitem from "@/app/components/admin/popularitem"
 import { CreditCard } from "react-bootstrap-icons"
+import Navigation from "@/app/components/admin/navigation"
 
 export default async function Admin() {    
     const popularitem = await supabase.from("product_demo").select("*").order("product_number",{ascending:false}).limit(3)
@@ -46,6 +47,7 @@ export default async function Admin() {
                     {popularitem.data.map(e => <Popularitem key={e.id} gambar={e.Product_image.trimEnd()} nama={e.nama_barang} harga={e.harga} sold={e.product_number} /> )}                                                          
                 </div>
             </div>
+            <Navigation/>
         </>
     )
 }

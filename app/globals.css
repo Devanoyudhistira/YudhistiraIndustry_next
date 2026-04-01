@@ -39,3 +39,8 @@ textarea{
     @apply bg-zinc-100 border-2 
   }
 }
+
+
+.footerbutton{
+  @apply flex flex-col items-center justify-center w-full transition hover:text-green-400  h-full text-xl font-medium
+}

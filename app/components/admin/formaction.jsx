@@ -7,7 +7,7 @@ import Inputprice from "@/app/components/admin/inputprice";
 import Inputstock from "@/app/components/admin/inputstock";
 import { useActionState } from "react";
 import { Pencil } from "react-bootstrap-icons";
-export default function Formaction({ orignalid,originalimage,createaction,originaltext,originalprice,originalstock,originaldesc }) {
+export default function Formaction({icon, message,orignalid,originalimage,createaction,originaltext,originalprice,originalstock,originaldesc }) {
     const [result,action,loading] = useActionState(createaction,null)
     return (
         <form className="w-max h-max gap-2 mt-3 justify-center items-center flex flex-col" action={action} >
@@ -19,7 +19,7 @@ export default function Formaction({ orignalid,originalimage,createaction,origin
                 <Inputstock originalvalue={originalstock} />
             </div>
             <Descriptioninput originalvalue={originaldesc} />
-            <Buttonsubmit message={"Update"} icon={<Pencil/>} />
+            <Buttonsubmit message={message} icon={icon} />
         </form>
     )
 }

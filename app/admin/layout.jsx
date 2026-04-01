@@ -1,6 +1,5 @@
 import { redirect } from "next/navigation"
 import { createClient } from "../supabase/server"
-import Navigation from "../components/admin/navigation"
 import { Manrope, Open_Sans } from "next/font/google"
 import logout from "../actions/login/logout"
 
@@ -22,8 +21,8 @@ export default async function Adminlayout({ children }) {
     }
     return (
         <>
-            <Navigation logout={logout} />
-            <main className={"mt-19 py-0.5 overflow-x-hidden overflow-y-auto scroll-smooth " + montserrat.className} >
+            {/* <Navigation logout={logout} /> */}
+            <main className={"mt-5 py-0.5 overflow-x-hidden overflow-y-auto scroll-smooth " + montserrat.className} >
 
                 {children}
             </main>
