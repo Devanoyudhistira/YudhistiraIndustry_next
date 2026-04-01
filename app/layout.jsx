@@ -1,8 +1,8 @@
-import { Geist, Geist_Mono,Inter,Open_Sans } from "next/font/google";
+import { Geist, Geist_Mono,Inter,Manrope,Open_Sans } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "./components/navigation";
 
-const poppins = Inter({})
+const poppins = Manrope({})
 
 export const metadata = {
   title: "YudhistiraIndustry",
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body
         className={`antialiased ${poppins.className} `}
       >
-        <main className="px-2 overflow-x-hidden" >
+        <main className="px-2 pb-6 overflow-x-hidden" >
           {children}
         </main>
       </body>

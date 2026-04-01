@@ -1,4 +1,5 @@
 import convertToMoney from "@/app/function/convert";
+import truncate from "@/app/function/truncat";
 import Image from "next/image";
 
 export default function Popularitem({nama,sold,harga,gambar}) {
@@ -8,7 +9,7 @@ export default function Popularitem({nama,sold,harga,gambar}) {
             <h1 className="-mt-6 font-bold text-md capitalize tracking-wide" > {nama} </h1>
             <div className="flex w-full justify-between items-center" >
                 <h5 className="text-[15px] font-medium" >{sold} Terjual</h5>
-                <h2 className="text-[15px] font-semibold" >{ convertToMoney(harga)}</h2>
+                <h2 className="text-[15px] font-semibold" >{truncate(convertToMoney(harga),10 )}</h2>
             </div>
         </div>
     )

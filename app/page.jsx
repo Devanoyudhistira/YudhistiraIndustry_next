@@ -1,23 +1,43 @@
 import Image from "next/image";
 import { Navigation } from "@/components/navigation";
-import { Inter } from "next/font/google";
 import { Shopcard } from "./components/shop/productcard";
 import supabase from "./supabase/supabase";
 import { createClient } from "./supabase/server";
+import Popularitem from "./components/shop/popularitem";
+import moment from "moment";
+import Newestitem from "./components/shop/newestitem";
+import convertToMoney from "./function/convert";
 
-
-const inter = Inter({})
-export default async function Home() {  
+export default async function Home() {
   const server = await createClient()
-  const { data } = await supabase.from("product_demo").select("*") 
-  const {data:{session}} = await server.auth.getSession()
+  const { data } = await supabase.from("product_demo").select("*").order("product_number", { ascending: false }).limit(3)
+  const { data: terbaru } = await supabase.from("product_demo").select("*").order("created_at", { ascending: false }).limit(5)
+  const { data: { session } } = await server.auth.getSession()
   return (
     <>
-     <Navigation user={session} />
-     <h1 className={"text-3xl mt-15 font-black  " + inter.className } > Only For You </h1>  
-     <div className="grid grid-cols-2 mt-2 -ml-2 py-2 px-2 gap-x-2 gap-y-2.5 w-screen justify-items-center h-auto overflow-x-hidden overflow-y-auto" >
-       <Shopcard data={data} />
-    </div>  
+      <Navigation user={session} />
+      <div className="mt-15 w-full px-3 " >
+        <h4 className="mt-15 font-semibold text-xl" > Welcome to the YudhistiraIndustry </h4>
+        <p className="text-md font-light  px-2" > Sebuah tempat dimana anda bisa menemukan apa saja jadi siapa saja.Nikmati petualangan anda di <span className="font-bold text-green-400" > YudhistiraIndustry </span> </p>
+      </div>
+      <div className="mt-5 w-full px-3" >
+        <h1 className="text-2xl font-semibold" > Most Popular </h1>
+        <div className="w-full overflow-auto gap-x-2 grid grid-flow-col scrollbar" >
+          {
+            data.map((e, i) =>
+              <Popularitem harga={convertToMoney(e.harga)} key={e.id} urutan={i} terjual={e.product_number} stock={e.jumlah} gambar={e.Product_image} tanggal={moment(e.created_at).format("MMM DD YY")} nama={e.nama_barang} />
+            )
+          }
+        </div>
+      </div>
+      <section className="w-full overflow-auto gap-x-2 grid grid-flow-col bg-sky-800 py-5 px-4" >
+        {
+          terbaru.map((e, i) =>
+            <Newestitem nama={e.nama_barang} harga={ convertToMoney(e.harga) } tanggal={moment(e.created_at).startOf('').fromNow()} image={e.Product_image} key={e.id} />
+          )
+        }
+      </section>
+      
     </>
   );
 }
