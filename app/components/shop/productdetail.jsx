@@ -4,6 +4,7 @@ import { Plus } from "react-bootstrap-icons"
 import convertToMoney from "@/app/function/convert"
 import { DashLg } from "react-bootstrap-icons"
 import { ArrowRight } from "react-bootstrap-icons"
+import { formatnumber, parseIDR } from "@/app/function/numberformat"
 
 
 export default function Productdetail({ data, clickhandler, quantity, setquantity, setprice, price }) {
@@ -42,7 +43,7 @@ export default function Productdetail({ data, clickhandler, quantity, setquantit
                         </div>
                         <div >
                             <h1 className="text-md font-medium" >total value</h1>
-                            <h1 className="text-xl tracking-wider font-medium" > {convertToMoney(data.harga * quantity)}</h1>
+                            <h1 className="text-xl tracking-wider font-medium" > {convertToMoney(parseIDR(data.harga) * quantity ) }</h1>
                         </div>
                     </div>
                     <button onClick={clickhandler} className="text-2xl tracking-wider bg-zinc-900 text-zinc-50 px-6 py-2 rounded-md  mt-3 flex items-center gap-2 font-semibold w-max h-min" > Checkout <ArrowRight /> </button>

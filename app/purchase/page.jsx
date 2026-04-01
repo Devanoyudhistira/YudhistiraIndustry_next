@@ -8,6 +8,7 @@ import { FiletypePdf } from "react-bootstrap-icons"
 import { Receipt } from "react-bootstrap-icons"
 import { Download } from "react-bootstrap-icons"
 import { ArrowLeft } from "react-bootstrap-icons"
+import { parseIDR } from "../function/numberformat"
 
 export default async function Success() {
     const cookie = await cookies()
@@ -22,7 +23,7 @@ export default async function Success() {
                 <Link href={"https://share.google/4Lap5OiJxhxS7HoVe"} className="text-zinc-950 block " > 0880 Malibu Point, 90265,</Link></p>
             <div className="w-full flex items-start justify-center flex-col px-4 mt-6 " >
                 <h3 className="text-[18px] font-bold text-gray-400" > Total Pembayaran </h3>
-                <h1 className="text-4xl font-semibold " > {convertToMoney(data.pembayaran)} </h1>
+                <h1 className="text-4xl font-semibold " > { convertToMoney(new Intl.NumberFormat('id-ID').format(data.pembayaran) )} </h1>
             </div>
             <div className="w-88 gap-2 flex flex-col items-center h-max bg-zinc-50 shadow-2xs shadow-zinc-950 rounded-xl px-3 py-2 mt-3" >
                 <div className="w-full justify-between px-1 flex items-center text-md">

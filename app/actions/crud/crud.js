@@ -24,9 +24,8 @@ export async function createaction(prev, formdata) {
     .from("product_demo")
     .insert({
       nama_barang: nama,
-      harga: parseFloat(harga),
+      harga: harga,
       jumlah: stock,
-      satuan: "kg",
       Product_image: `${imageurl}${finalname}`,
       product_number: 0,
       description: descproduct,
@@ -88,13 +87,18 @@ export async function update(prev, formdata) {
   }
   const res = await fetch(previmage.Product_image);
   const blob = await res.blob();
-  
+
   await supabase.storage
     .from("YudhistiraIndustries")
-    .remove(`productimage${previmage.Product_image.split(".").at(-1) }`);    
+    .remove([
+      `productimage/${previmage.Product_image.split("/").at(-1).trimEnd()}`,
+    ]);
   const imageup = await supabase.storage
     .from("YudhistiraIndrusties")
-    .upload(`productimage/${finalname}`, image instanceof File && image.size > 0 ? image : blob);
+    .upload(
+      `productimage/${finalname}`,
+      image instanceof File && image.size > 0 ? image : blob,
+    );
   if (imageup.error) {
     console.log(imageup.error);
     redirect(`/admin/inventory/update/${data[0].id}/failed`);

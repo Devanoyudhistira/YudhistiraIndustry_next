@@ -5,6 +5,8 @@ import Productdetail from "./productdetail"
 import Userform from "./userform"
 import Backdrop from "../backdrop"
 import supabase from "@/supabase/supabase";
+import convertToMoney from "@/app/function/convert"
+import { parseIDR } from "@/app/function/numberformat"
 
 
 
@@ -29,9 +31,9 @@ export default function Productpage({ data, id }) {
             },
             body: JSON.stringify({
                 produk: data.nama_barang,
-                harga: data.harga,
+                harga: parseIDR(data.harga),
                 quantity: quantity,
-                grossprice: data.harga * quantity,
+                grossprice:parseIDR(data.harga) * quantity,
                 id: id,
                 namapembeli: nama_pembeli,
                 emailpembeli: email_pembeli,

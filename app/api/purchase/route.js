@@ -40,8 +40,8 @@ export async function POST(Request) {
     },
   };
 
-  cookie.set("pembayaran",parameter.transaction_details.order_id)
-  cookie.set("orderid",parameter.transaction_details.order_id,{secure:true,maxAge:70})
+  cookie.set("pembayaran",parameter.transaction_details.order_id,{secure:true,maxAge:250})
+  cookie.set("orderid",parameter.transaction_details.order_id,{secure:true})
 
   const { error } = await supabase.from("invoice_new").upsert(
     {

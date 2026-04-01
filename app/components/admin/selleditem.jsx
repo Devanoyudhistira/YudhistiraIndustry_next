@@ -1,3 +1,4 @@
+"use client"
 import convertToMoney from "@/app/function/convert";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +8,20 @@ import { Trash2 } from "react-bootstrap-icons";
 import { PenFill } from "react-bootstrap-icons";
 
 export default function Selleditem({ id, nama, stok, Terjual, gambar, harga }) {
+
+    const baseurl = window.location.origin
+
+    const deleteproduk = async () => {
+        const data = await fetch(`/api/deleteaction`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({                
+                id: id,         
+            }),
+        }).then(e => e.json()).then(res => console.log(res))
+    }
     return (
         <div className="w-full h-max  rounded-xl  shadow-2xs  flex-col py-2" >
             <div className="w-full gap-2 px-2 flex justify-between" >
@@ -31,7 +46,7 @@ export default function Selleditem({ id, nama, stok, Terjual, gambar, harga }) {
             </div>
             <div className="flex text-xl gap-1 justify-self-end items-center px-4" >
                 <button className="bg-blue-200 text-sky-500 p-1" > <Link href={`/admin/inventory/update/${id}`} className="bg-blue-300 font-medium" > <Pencil /> </Link> </button>
-                <button className="bg-red-200 text-red-500 p-1" > <Trash /></button>
+                <button onClick={deleteproduk} className="bg-red-200 text-red-500 p-1" > <Trash /></button>
             </div>
         </div>
     )

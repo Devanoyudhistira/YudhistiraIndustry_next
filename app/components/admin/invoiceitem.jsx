@@ -32,7 +32,7 @@ export default function Invoiceitem({ namaitem, harga, status, tanggal, user }) 
             </div>
             <div className="w-full flex justify-between px-2 items-center ">
                 <h1 className="text-xl font-semibold" > {namaitem} </h1>
-                <h1 className="text-md font-semibold" > {convertToMoney(harga)} </h1>
+                <h1 className="text-md font-semibold" > {new Intl.NumberFormat('id-ID').format(harga)} </h1>
             </div>
         </div>
     )

@@ -29,7 +29,7 @@ export default async function Inventory() {
                         </div>
                     </div>
                     <div className="mt-3 px-3 flex gap-2 flex-col justify-center items-center" >
-                        {data.map(e => <Selleditem id={e.id} harga={e.harga} key={e.id} gambar={e.Product_image.trimEnd()} nama={e.nama_barang} stok={1} Terjual={e.product_number} />)}
+                        {data.map(e => <Selleditem id={e.id} harga={e.harga} key={e.id} gambar={e.Product_image.trimEnd()} nama={e.nama_barang} stok={e.jumlah} Terjual={e.product_number} />)}
                     </div>
                 </>}
             {
