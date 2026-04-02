@@ -10,7 +10,7 @@ import { parseIDR } from "@/app/function/numberformat"
 
 
 
-export default function Productpage({ data, id }) {
+export default function Productpage({ data, id,image,harga,nama }) {
     const [openuser, setopenuser] = useState(false)
     const [quantity, setquantity] = useState(1)
     const [grossprice, setgrossprice] = useState(data.harga * quantity)
@@ -84,7 +84,7 @@ export default function Productpage({ data, id }) {
             <Productdetail data={data} setprice={setgrossprice} quantity={quantity} setquantity={setquantity} clickhandler={() => setopenuser(true)} price={grossprice} />
             {openuser &&
                 <Backdrop>
-                    <Userform closecondition={openuser} purchase={purchase} closehandle={() => setopenuser(false)} id={id} quantity={quantity} />
+                    <Userform image={data.Product_image} nama={data.nama_barang} harga={data.harga} closecondition={openuser} purchase={purchase} closehandle={() => setopenuser(false)} id={id} quantity={quantity} />
                 </Backdrop>
             }
 
