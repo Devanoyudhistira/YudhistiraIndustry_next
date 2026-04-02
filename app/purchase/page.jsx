@@ -13,11 +13,13 @@ import { Check2 } from "react-bootstrap-icons"
 import * as motion from "motion/react-client"
 import { Hourglass } from "react-bootstrap-icons"
 import { ArrowClockwise } from "react-bootstrap-icons"
+import Button from "../components/purchase/button"
 
 export default async function Success({ params }) {
+
     const cookie = await cookies()
     const orderid = cookie.get("orderid")
-    const { data } = await supabase.from("invoice_new").select("*").eq("orderid", orderid.value).single()
+    const { data } = await supabase.from("invoice_new").select("*").eq("orderid", orderid.value).single()    
     return (
         <div className="flex flex-col w-screen h-max py-2 px-2 items-center justify-start " >
            {data.status === "settlement" ? <motion.div animate={{
@@ -68,16 +70,7 @@ export default async function Success({ params }) {
                     <h2 className="font-semibold" > {moment(data.created_at).format("MMM D YYYY HH:MM A")} </h2>
                 </div>
             </div>
-            {data.status === "settlement" && <motion.button whileTap={{ scale: 0.9 }}
-                transition={{
-                    duration: 0.1,
-                }} className="bg-green-300  w-82 h-20 rounded-xl mt-4 items-center justify-center gap-5 flex px-6 cursor-pointer shadow-xl shadow-emerald-400/20 inset-50 " >
-                <Receipt className="text-green-500" size={30} />
-                <div className="text-left" >
-                    <h1 className="text-md font-bold border-b-2 border-green-800 w-min " > Invoice.pdf </h1>
-                    <p className="text-xs font-medium" > tekan untuk menyimpan nota anda </p>
-                </div>
-            </motion.button>}
+            {data.status === "settlement" && <Button data={data} />}
             {data.status === "settlement" && <h2 className="font-bold text-sm text-red-500 mt-1"> Pastikan anda menyimpan nota </h2>}
             <Link className="mt-4 w-84 rounded-xl text-center flex justify-center items-center gap-3 bg-zinc-950 capitalize text-zinc-50 font-bold text-2xl py-3" href={data.status === "settlement" ? "/" : `/product/${data.product_id}`}> {data.status === "setllment" ? <span> <ArrowLeft />  kembali</span> 
             : <span className="items-center gap-2 w-max flex" > <ArrowClockwise />kembali</span> } </Link>
