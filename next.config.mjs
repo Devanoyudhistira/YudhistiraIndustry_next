@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
   reactCompiler: true,
+
   images: {
     remotePatterns: [
       {
@@ -10,6 +10,17 @@ const nextConfig = {
         pathname: "/storage/v1/object/public/**",
       },
     ],
+  },
+
+  experimental: {
+    outputFileTracingIncludes: {
+      "/api/pdf": [
+        "./node_modules/@sparticuz/chromium/bin/**",
+      ],
+      "/app/api/pdf/route": [
+        "./node_modules/@sparticuz/chromium/bin/**",
+      ],
+    },
   },
 };
 
