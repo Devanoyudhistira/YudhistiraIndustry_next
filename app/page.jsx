@@ -41,9 +41,7 @@ export default async function Home() {
           <section className="w-full mt-8 px-3 bg-zinc-50 " >
           <h1 className="text-2xl font-semibold capitalize" > Recommended For you </h1>
           <div className="w-full py-5 overflow-x-hidden overflow-y-auto place-items-center gap-y-5 gap-x-13 grid px-6 grid-cols-2 mt-2" >        
-              <Shopcard data={alldata} />          
-              <Shopcard data={alldata} />          
-              <Shopcard data={alldata} />          
+              <Shopcard data={alldata} />                      
           </div>
           </section>
 
