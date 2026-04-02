@@ -18,7 +18,7 @@ export default async function Admin() {
     var uang = uangpembayaran.data.reduce((acc, obj) => { return acc + parseFloat(obj.pembayaran); }, 0);
     const uangtotal = convertToMoney(uang)
     return (
-        <>
+        <div className="pb-18" >
             <div className="w-screen h-auto flex flex-col items-start px-3" >
                 <h1 className="text-2xl font-extrabold" > Dashboard </h1>
                 <h4 className="text-md font-medium text-zinc-900 tracking-wide" > pengelolaan toko [nama toko] pribadi </h4>
@@ -48,6 +48,6 @@ export default async function Admin() {
                 </div>
             </div>
             <Navigation/>
-        </>
+        </div>
     )
 }

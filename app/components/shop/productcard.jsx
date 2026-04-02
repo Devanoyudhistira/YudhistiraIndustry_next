@@ -22,7 +22,7 @@ export function Shopcard({ data }) {
                 data.map(e =>
                     <motion.div key={e.id} className=" shadow-xs bg-gray-50 shadow-zinc-900 flex flex-col items-center justify-evenly px-1.5 gap-1  py-2 h-max w-40 rounded-xl" >
                         <motion.div className="w-full overflow-hidden " >
-                            <Image width={600} height={600} alt={e.nama_barang} loading="eager" src={e.Product_image.trimEnd()} id="mockup-image" className="h-27 hover:scale-110 object-center transition object-cover w-full rounded-md " />
+                            <Image width={500} height={500} alt={e.nama_barang} loading="eager" src={e.Product_image.trimEnd()} id="mockup-image" className="h-27 hover:scale-110 object-center transition object-cover w-full rounded-md " />
                         </motion.div>
                         <div id="information" className="w-full -mt-2 h-15 flex flex-col justify-start items-start" >
                             <h1 className={inter.className + " text-md tracking-wider font-semibold "}  > {truncate(e.nama_barang, 11)} </h1>

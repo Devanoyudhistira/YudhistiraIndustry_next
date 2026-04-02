@@ -8,7 +8,7 @@ import Navigation from "@/app/components/admin/navigation";
 export default async function Invoice() {
     const { data } = await supabase.from("invoice_new").select("*").order("created_at", { ascending: false })
     return (
-        <div>
+        <div className="pb-20" >
             {data.length > 0 &&
                 <>
                     <div className="flex w-full px-3 justify-between" >

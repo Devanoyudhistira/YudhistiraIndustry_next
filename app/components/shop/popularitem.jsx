@@ -8,7 +8,7 @@ export default function Popularitem({ id,gambar, nama, stock, terjual, tanggal, 
         <Link href={`product/${id}`} >
             <div className="w-77 h-max bg-white shadow-xs rounded-xl flex flex-col items-center py-2 px-2 relative" >
                 <div className="absolute z-100 text-white w-max h-max px-2 py-2 rounded-full text-xl bg-yellow-500 top-2 left-5" > {urutan + 1}# </div>
-                <Image width="1000" className="w-[90%] h-38 rounded-xl object-cover object-center " src={gambar.trimEnd()} height="1000" alt="popular" />
+                <Image width="800" className="w-[90%] h-38 rounded-xl object-cover object-center " src={gambar.trimEnd()} height="800" alt="popular" />
                 <div className="w-max ml-1 flex gap-1 px-3 items-center self-start" >
                     <h4 className="text-xs font-light" >
                         dibuat:  </h4>

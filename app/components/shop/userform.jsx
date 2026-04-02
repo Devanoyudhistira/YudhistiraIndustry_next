@@ -26,7 +26,7 @@ export default function Userform({ id, closehandle, closecondition, quantity, pu
         exit={{ opacity: 0, scale: 0 }}
         onClick={(e) => e.stopPropagation()}
         onSubmit={(e) => purchase(e, id, quantity,name,email,nomor)}
-        className="bg-zinc-100 shadow-[1px_1px_10px_black] w-[95vw] h-full px-2 py-1 flex flex-col fixed top-10 rounded-md gap-2">
+        className="bg-zinc-100 -mt-10 shadow-[1px_1px_10px_black] w-[95vw] h-full px-2 py-1 flex flex-col fixed top-10 rounded-md gap-2">
         <div className="flex justify-between w-full items-center">
           <h1 className={"text-4xl font-bold " + open.className}>
             Tolong Isi
