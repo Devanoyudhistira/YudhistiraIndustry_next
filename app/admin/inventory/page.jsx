@@ -7,6 +7,7 @@ import { Basket } from "react-bootstrap-icons";
 import { Plus } from "react-bootstrap-icons";
 import { FilterLeft } from "react-bootstrap-icons";
 import { FilterRight } from "react-bootstrap-icons";
+import logout from "@/app/actions/login/logout";
 
 export default async function Inventory() {
     const { data, count } = await supabase.from("product_demo").select("*")
@@ -40,7 +41,7 @@ export default async function Inventory() {
             {
                 data.length > 0 && <Link href={"/admin/inventory/create"} > <button className="fixed bottom-20 right-4 bg-linear-to-b from-zinc-950 to-zinc-600 shadow-xs shadow-zinc-200 w-12 h-12 flex items-center justify-center text-6xl rounded-xl " > <Plus color="white" /> </button></Link>
                 }
-                <Navigation/>
+                <Navigation logout={logout} />
         </div>
     )
 }

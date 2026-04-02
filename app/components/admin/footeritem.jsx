@@ -17,7 +17,7 @@ export default function Footeritem({ text, icon }) {
             <motion.button
                 whileHover={{ scale: 1.1, color: "#05df72" }}
                 whileTap={{ scale: 1.1, color: "#05df72" }}
-                transition={{ type: "spring",duration:0.6, stiffness: 300,speed:10 }}
+                transition={{ type: "spring",duration:0.1, stiffness: 300,speed:10 }}
                 onTapStart={() => setTapped(true)}
                 onTap={() => {setTapped(false)}}
                 onTapCancel={() => setTapped(false)}

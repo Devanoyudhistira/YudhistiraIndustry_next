@@ -4,6 +4,7 @@ import { Filter } from "react-bootstrap-icons";
 import moment from "moment";
 import Emptyinventory from "@/app/components/admin/emptyinvoice";
 import Navigation from "@/app/components/admin/navigation";
+import logout from "@/app/actions/login/logout";
 
 export default async function Invoice() {
     const { data } = await supabase.from("invoice_new").select("*").order("created_at", { ascending: false })
@@ -24,7 +25,7 @@ export default async function Invoice() {
             {
                 data.length < 1 && <Emptyinventory/>
             }
-            <Navigation/>
+            <Navigation logout={logout} />
         </div>
     )
 }
