@@ -43,17 +43,17 @@ export default function Productpage({ data, id }) {
         const token = await transaction.json();
         console.log(token);
         window.snap.pay(token, {
-            onSuccess: function (result) {
-                window.location.href = "/";
+            onSuccess: function (result) {                
+                window.location.href = `/purchase`;
             },
             onPending: function (result) {
-                window.location.href = "/";
+                window.location.href = `/purchase`;
             },
             onError: function (result) {
-                window.location.href = "/";
+                window.location.href = `/purchase`;
             },
             onClose: function (res) {
-                console.log(res);
+                `/purchase/${result.orderid}`
             },
         });
         const responsepurchase = await fetch(

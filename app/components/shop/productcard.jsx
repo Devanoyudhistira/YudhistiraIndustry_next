@@ -24,7 +24,7 @@ export function Shopcard({ data }) {
                         <motion.div className="w-full overflow-hidden " >
                             <Image width={500} height={500} alt={e.nama_barang} loading="eager" src={e.Product_image.trimEnd()} id="mockup-image" className="h-27 hover:scale-110 object-center transition object-cover w-full rounded-md " />
                         </motion.div>
-                        <div id="information" className="w-full -mt-2 h-15 flex flex-col justify-start items-start" >
+                        <div id="information" className="w-full -mt-1 h-15 flex flex-col justify-start items-start" >
                             <h1 className={inter.className + " text-md tracking-wider font-semibold "}  > {truncate(e.nama_barang, 11)} </h1>
                             <h2 className={inter.className + " text-md font-medium -mt-1 "} > {truncate(convertToMoney(e.harga), 10)} </h2>
                         </div>
