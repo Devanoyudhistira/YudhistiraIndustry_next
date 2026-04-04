@@ -14,12 +14,11 @@ const nextConfig = {
 
   experimental: {
     outputFileTracingIncludes: {
-      "/api/pdf": [
-        "./node_modules/@sparticuz/chromium/bin/**",
-      ],
-      "/app/api/pdf/route": [
-        "./node_modules/@sparticuz/chromium/bin/**",
-      ],
+      "/api/pdf": ["./node_modules/@sparticuz/chromium/bin/**"],
+      "/app/api/pdf/route": ["./node_modules/@sparticuz/chromium/bin/**"],
+    },
+    serverActions: {
+      bodySizeLimit: "10mb",
     },
   },
 };

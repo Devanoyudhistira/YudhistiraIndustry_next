@@ -3,16 +3,22 @@
 import supabase from "@/app/supabase/supabase";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 const imageurl =
   "https://ntrtbiyiefmemqbcjsad.supabase.co/storage/v1/object/public/YudhistiraIndrusties/productimage/";
 
 export async function createaction(prev, formdata) {
+  const cookie = await cookies()
   const image = formdata.get("imageinput");
   const nama = formdata.get("nama");
   const harga = formdata.get("price");
   const stock = formdata.get("stock");
   const descproduct = formdata.get("description");
   const extension = image.name.split(".").at(-1);
+  if(image.size > 6291456){
+    cookie.set("error","gambar terlalu besar")    
+    redirect(`/admin/inventory/create/failed?error=imagetobig`);
+  }
   const finalname =
     Math.random()
       .toString(36)
@@ -32,16 +38,12 @@ export async function createaction(prev, formdata) {
     })
     .select();
 
-  if (error) {
-    console.log(error);
+  if (error) {    
     redirect(`/admin/inventory/create/failed`);
   }
   const imageup = await supabase.storage
     .from("YudhistiraIndrusties")
-    .upload(`productimage/${finalname}`, image);
-  if (imageup.error) {
-    console.log(imageup.error);
-  }
+    .upload(`productimage/${finalname}`, image);  
 
   revalidatePath("/admin/inventory");
   redirect(`/admin/inventory/create/success/${data[0].id}`);

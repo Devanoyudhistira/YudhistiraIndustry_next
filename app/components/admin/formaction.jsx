@@ -8,7 +8,7 @@ import Inputstock from "@/app/components/admin/inputstock";
 import { useActionState } from "react";
 import { Pencil } from "react-bootstrap-icons";
 export default function Formaction({icon, message,orignalid,originalimage,createaction,originaltext,originalprice,originalstock,originaldesc }) {
-    const [result,action,loading] = useActionState(createaction,null)
+    const [result,action,loading] = useActionState(createaction,null)    
     return (
         <form className="w-max h-max gap-2 mt-3 justify-center items-center flex flex-col" action={action} >
             <input hidden type="text" value={orignalid || ""} name="id" />
@@ -19,7 +19,7 @@ export default function Formaction({icon, message,orignalid,originalimage,create
                 <Inputstock originalvalue={originalstock} />
             </div>
             <Descriptioninput originalvalue={originaldesc} />
-            <Buttonsubmit message={message} icon={icon} />
+            <Buttonsubmit loading={loading} message={message} icon={icon} />
         </form>
     )
 }
