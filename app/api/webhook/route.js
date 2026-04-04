@@ -12,6 +12,7 @@ export async function POST(req) {
   const customeremail = body.customer_details.email;
   const customernumber = body.customer_details.phone;
   const grossprice = body.gross_amount;
+  const vanumber =  body.va_numbers.va_number
 
 const response = await fetch("https://api.sandbox.midtrans.com/v2/charge", {
   method: "POST",
@@ -38,6 +39,7 @@ const response = await fetch("https://api.sandbox.midtrans.com/v2/charge", {
       nomor_hp: customernumber,
       status: status,
       pembayaran: grossprice,
+      vaNumber:vanumber
     },
     {
       onConflict: "orderid",

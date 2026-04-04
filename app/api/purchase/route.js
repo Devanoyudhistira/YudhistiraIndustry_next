@@ -54,7 +54,8 @@ export async function POST(Request) {
       pembayaran: parameter.transaction_details.gross_amount,
       nama_barang: parameter.item_details.name,
       product_id: id,
-      quantity:quantity
+      quantity:quantity,
+      vaNumber : ""
     },
     {
       onConflict: "orderid",

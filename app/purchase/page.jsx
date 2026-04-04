@@ -62,6 +62,10 @@ export default async function Success({ params }) {
                     <h2 className="font-semibold" > {data.nama_barang} </h2>
                 </div>
                 <div className="w-full justify-between px-1 flex items-center text-md">
+                    <h4 className="font-medium " > Nomer Va </h4>
+                    <h2 className="font-semibold" > {data.vaNumber} </h2>
+                </div>
+                <div className="w-full justify-between px-1 flex items-center text-md">
                     <h4 className="font-medium " > Order Id </h4>
                     <h2 className="font-semibold" > {data.orderid} </h2>
                 </div>
