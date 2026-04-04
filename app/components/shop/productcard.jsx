@@ -20,7 +20,7 @@ export function Shopcard({ data }) {
             {purchaseloading && <Backdrop> <h1 className="text-4xl font-bold text-white" > Loading </h1> </Backdrop >}
             {
                 data.map(e =>
-                    <motion.div key={e.id} className=" shadow-xs bg-gray-50 shadow-zinc-900 flex flex-col items-center justify-evenly px-1.5 gap-1  py-2 h-max w-40 rounded-xl" >
+                    <motion.div key={e.id} className=" shadow-xs bg-gray-50 shadow-purple-500 flex flex-col items-center justify-evenly px-1.5 gap-1  py-2 h-max w-40 rounded-xl" >
                         <motion.div className="w-full overflow-hidden " >
                             <Image width={500} height={500} alt={e.nama_barang} loading="eager" src={e.Product_image.trimEnd()} id="mockup-image" className="h-27 hover:scale-110 object-center transition object-cover w-full rounded-md " />
                         </motion.div>
@@ -31,7 +31,7 @@ export function Shopcard({ data }) {
                         <div className="w-full h-max px-1 flex flex-col border-t-2 border-gray-100 -mt-2 gap-2" >
                             <div className="text-xs  w-full flex justify-between items-center" >
                                 <h2 className="font-light" >Stock</h2>
-                                <h1 className={`${e.jumlah < 10 ? "text-red-600" : "text-green-500"}  font-semibold`} >{e.jumlah} </h1>
+                                <h1 className={`${e.jumlah < 10 ? "text-red-600" : "text-purple-500"}  font-semibold`} >{e.jumlah} </h1>
                             </div>
                             <div className="text-xs  -mt-2 w-full flex justify-between items-center" >
                                 <h2 className="font-light" > terjual </h2>
@@ -39,7 +39,7 @@ export function Shopcard({ data }) {
                             </div>
                         </div>
                         <Link href={`product/${e.id}`} >
-                            <button className=" w-max px-2 py-1 bg-zinc-950 text-gray-50 font-semibold transition hover:text-gray-950 hover:bg-zinc-50 border-3 rounded-xl text-center focus:scale-90 focus:text-zinc-950 focus:bg-zinc-50 " > See Detail </button>
+                            <button className=" w-max px-2 py-1 bg-purple-500 text-purple-50 font-semibold transition hover:text-gray-950 hover:bg-purple-100 focus:border-3 border-purple-600 rounded-xl text-center focus:scale-90 focus:text-zinc-950 focus:bg-zinc-50 " > See Detail </button>
                         </Link>
                     </motion.div>)
             }

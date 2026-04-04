@@ -43,7 +43,7 @@ export default function Userform({ id, image, nama, harga, closehandle, closecon
               <X size={50} />
             </button>
           </div>
-          <div className="flex w-full items-center px-2 gap-2 rounded-xl bg-emerald-300 py-2" >
+          <div className="flex w-full items-center px-2 gap-2 rounded-xl bg-linear-to-t from-purple-500 to-purple-600 py-2" >
             <Image alt="product name" width="500" className="w-20 h-20 object-center object-cover rounded-xl" height={500} src={image} ></Image>
             <div>
               <h1 className="text-xl font-semibold" > {nama} </h1>
@@ -51,16 +51,16 @@ export default function Userform({ id, image, nama, harga, closehandle, closecon
             </div>
 
           </div>
-          <label htmlFor="nama">Nama Lengkap</label>
+          <label htmlFor="nama" className="text-xl text-purple-900 font-semibold" >Nama Lengkap</label>
           <input onChange={e => setname(e.currentTarget.value)} autocomplete='off' className="userform" type="text" name="nama" id="nama" required />
 
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className="text-xl text-purple-900 font-semibold" >Email</label>
           <input onChange={e => setemail(e.currentTarget.value)} autocomplete='off' className="userform" type="email" name="email" id="email" required />
 
-          <label htmlFor="nomer">Nomer Telepon</label>
+          <label htmlFor="nomer" className="text-xl text-purple-900 font-semibold" >Nomer Telepon</label>
           <input onChange={e => setnomor(e.currentTarget.value)} autocomplete='off' className="userform" type="number" name="nomer" id="nomer" required />
 
-          <button disabled={loading} className={"text-4xl flex gap-3 items-center justify-center self-center transition rounded-md font-semibold w-full h-max py-3 bg-green-300  disabled:bg-gray-50 disabled:border-2 text-zinc-950 " + open.className}>
+          <button disabled={loading} className={"text-4xl flex gap-3 items-center justify-center self-center transition rounded-md font-semibold w-full h-max py-3 bg-purple-500 text-purple-50  disabled:bg-purple-50 disabled:border-2 border-purple-400 " + open.className}>
            { !loading ? <span className="flex gap-3 items-center justify-center" > Konfirmasi <ArrowRight/></span> : <span className="flex gap-3 items-center justify-center" > loading <ClipLoader/> </span>}
           </button>
         </motion.form>

@@ -22,7 +22,7 @@ export default function Productdetail({ data, clickhandler, quantity, setquantit
             </div>
             <footer className="w-screen mt-20 flex items-center justify-center " >
                 <div className="w-[80%]  -mt-20 py-1 px-2  shadow-xs shadow-zinc-200 flex flex-col justify-between items-center" >
-                    <div className="bg-sky-100 w-[90%] h-max rounded-xl mb-3 py-4 gap-3" >
+                    <div className="bg-indigo-100 w-[90%] h-max rounded-xl mb-3 py-4 gap-3" >
                         <div className="flex w-full justify-between px-6" >
                             <h3 className="font-medium text-xl capitalize" > Stock </h3>
                             <h1 className="font-bold text-xl capitalize" > {data.jumlah} </h1>
@@ -35,7 +35,7 @@ export default function Productdetail({ data, clickhandler, quantity, setquantit
                     <div className="w-full px-3  flex justify-between items-center" >
                         <div>
                             <h1 className="text-md font-medium tracking-wide" >quantity</h1>
-                            <div className="flex justify-between gap-5 w-max px-2 items-center bg-sky-100 rounded-md" >
+                            <div className="flex justify-between gap-5 w-max px-2 items-center bg-indigo-200 rounded-md" >
                                 <button onClick={() => setquantity(quantity <= 1 ? quantity : quantity - 1)} > <DashLg size={24} /> </button>
                                 <h1 className={"text-2xl font-semibold "} > {quantity} </h1>
                                 <button onClick={() => setquantity(quantity + 1)} > <Plus size={30} /> </button>
@@ -46,7 +46,7 @@ export default function Productdetail({ data, clickhandler, quantity, setquantit
                             <h1 className="text-xl tracking-wider font-medium" > {convertToMoney(parseIDR(data.harga) * quantity ) }</h1>
                         </div>
                     </div>
-                    <button onClick={clickhandler} className="text-2xl tracking-wider bg-zinc-900 text-zinc-50 px-6 py-2 rounded-md  mt-3 flex items-center gap-2 font-semibold w-max h-min" > Checkout <ArrowRight /> </button>
+                    <button onClick={clickhandler} className="text-2xl tracking-wider bg-purple-500 shadow-md shadow-purple-500 text-zinc-50 transition focus:scale-95 focus:bg-purple-100 focus:border-2 focus:text-purple-800 border-indigo-200 px-6 py-2 rounded-md  mt-3 flex items-center gap-2 font-semibold w-max h-min" > Checkout <ArrowRight /> </button>
                 </div>
             </footer>
         </div>)
