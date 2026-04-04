@@ -17,7 +17,7 @@ export default async function Successcreate({ params }) {
         <div className="flex flex-col overflow-x-hidden px-1 items-center justify-evenly " >
             <div className="flex items-center justify-center rounded-xl bg-green-300 text-green-500 p-4 " > <CheckCircle size={50}/> </div>
             <h1 className="text-2xl font-semibold " > Product Berhasil Di Buat </h1>
-            <p className="text-md  text-center text-zinc-500" > produk anda yang bernama {data.nama_barang} sudah siap dijual </p>
+            <p className="text-md  text-center" > produk anda yang bernama {data.nama_barang} sudah siap dijual </p>
             <Image alt={data.nama_barang} width={1000} height={1000} className="w-80 h-50 object-cover object-center rounded-xl" src={data.Product_image.trimEnd()} />
             <section className="grid w-screen px-5 py-1 h-50 rounded-xl mt-5 bg-zinc-50 grid-cols-2  gap-3" >
                 <div className="bg-sky-100/80 w-full h-max px-2 py-4 rounded-xl col-span-2 text-center" >
