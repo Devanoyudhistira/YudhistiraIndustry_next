@@ -13,6 +13,7 @@ export async function POST(req) {
   const customernumber = body.customer_details.phone;
   const grossprice = body.gross_amount;
   const vanumber =  body.va_numbers.va_number
+  console.log(body)
 
 const response = await fetch("https://api.sandbox.midtrans.com/v2/charge", {
   method: "POST",
