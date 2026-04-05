@@ -30,7 +30,7 @@ export default function Selleditem({ id, nama, stok, Terjual, gambar, harga }) {
                     <h1 className="text-xl font-semibold capitalize" > {nama} </h1>
                 </div>
                 <div className="bg-zinc-50  flex flex-col items-end justify-center gap-1" >
-                    <h2 className="text-xs  font-medium bg-green-300 h-min w-max px-2 py-1 rounded-md" > In stock </h2>
+                    <h2 className="text-xs  font-medium bg-purple-300 h-min w-max px-2 py-1 rounded-md" > In stock </h2>
                     <h4 className="font-semibold text-md" > {convertToMoney(harga)} </h4>
                 </div>
             </div>
@@ -41,7 +41,7 @@ export default function Selleditem({ id, nama, stok, Terjual, gambar, harga }) {
                 </div>
                 <div className="flex flex-col gap-1  items-center" >
                     <h1 className="text-xs font-medium" >Stock</h1>
-                    <p className="text-md -mt-1.5 font-semibold" >{stok} </p>
+                    <p className="text-md -mt-1.5 font-semibold" >{stok <= 0 ? <span className="text-md text-red-600 text-center" > habis </span> : stok } </p>
                 </div>
             </div>
             <div className="flex text-xl gap-1 justify-self-end items-center px-4" >
