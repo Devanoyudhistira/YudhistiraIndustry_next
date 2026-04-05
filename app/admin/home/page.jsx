@@ -44,8 +44,8 @@ export default async function Admin() {
                     <h1 className="text-xl font-semibold" >Barang Populer</h1>
                     <Link href={"/admin/inventory"} className="text-md font-medium " > lihat semua </Link>
                 </div>
-                <div className="flex gap-3 overflow-x-auto" >          
-                    {popularitem.data.map(e => <Popularitem key={e.id} gambar={e.Product_image.trimEnd()} nama={e.nama_barang} harga={e.harga} sold={e.product_number} /> )}                                                          
+                <div className="flex gap-3 overflow-x-auto py-3" >          
+                    {popularitem.data.map(e => <Popularitem key={e.id} gambar={e.Product_image.trimEnd()} nama={e.nama_barang} harga={e.harga} sold={e.product_number} stock={e.jumlah} /> )}                                                          
                 </div>
             </div>
             <Navigation logout={logout} />

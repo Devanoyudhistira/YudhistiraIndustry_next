@@ -8,17 +8,26 @@ const imageurl =
   "https://ntrtbiyiefmemqbcjsad.supabase.co/storage/v1/object/public/YudhistiraIndrusties/productimage/";
 
 export async function createaction(prev, formdata) {
-  const cookie = await cookies()
+  const cookie = await cookies();
   const image = formdata.get("imageinput");
   const nama = formdata.get("nama");
   const harga = formdata.get("price");
   const stock = formdata.get("stock");
   const descproduct = formdata.get("description");
   const extension = image.name.split(".").at(-1);
-  if(image.size > 6291456){
-    cookie.set("error","gambar terlalu besar")    
+  const imagevalidate = ["image/jpeg", "image/png", "image/webp"];
+  if (image.size > 6291456) {
     redirect(`/admin/inventory/create/failed?error=imagetobig`);
   }
+
+  if (!image || image.size === 0) {
+    redirect(`/admin/inventory/create/failed?error=imagemissing`);
+  }
+
+  if (!imagevalidate.includes(image.type)) {
+    redirect(`/admin/inventory/create/failed?error=invalidtype`);
+  }
+
   const finalname =
     Math.random()
       .toString(36)
@@ -38,12 +47,12 @@ export async function createaction(prev, formdata) {
     })
     .select();
 
-  if (error) {    
+  if (error) {
     redirect(`/admin/inventory/create/failed`);
   }
   const imageup = await supabase.storage
     .from("YudhistiraIndrusties")
-    .upload(`productimage/${finalname}`, image);  
+    .upload(`productimage/${finalname}`, image);
 
   revalidatePath("/admin/inventory");
   redirect(`/admin/inventory/create/success/${data[0].id}`);
@@ -57,6 +66,18 @@ export async function update(prev, formdata) {
   const id = formdata.get("id");
   const descproduct = formdata.get("description");
   const extension = image.name.split(".").at(-1);
+  const imagevalidate = ["image/jpeg", "image/png", "image/webp"];
+  if (image.size > 6291456) {
+    redirect(`/admin/inventory/create/failed?error=imagetobig`);
+  }
+
+  if (!image || image.size === 0) {
+    redirect(`/admin/inventory/create/failed?error=imagemissing`);
+  }
+
+  if (!imagevalidate.includes(image.type)) {
+    redirect(`/admin/inventory/create/failed?error=invalidtype`);
+  }
   const finalname =
     Math.random()
       .toString(36)

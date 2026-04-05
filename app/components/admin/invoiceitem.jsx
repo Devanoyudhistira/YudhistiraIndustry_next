@@ -7,7 +7,7 @@ export default function Invoiceitem({ namaitem, harga, status, tanggal, user }) 
         let style = ""
         switch (statusproduct) {
             case "lunas":
-                style = "bg-purple-300 text-purple-800"
+                style = "bg-green-300 text-green-950"
                 break;
             case "error" || "expired":
                 style = "bg-red-600"
