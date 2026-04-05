@@ -60,8 +60,8 @@ export default function Userform({ id, image, nama, harga, closehandle, closecon
           <label htmlFor="nomer" className="text-xl text-purple-900 font-semibold" >Nomer Telepon</label>
           <input onChange={e => setnomor(e.currentTarget.value)} autocomplete='off' className="userform" type="number" name="nomer" id="nomer" required />
 
-          <button disabled={loading} className={"text-4xl flex gap-3 items-center justify-center self-center transition rounded-md font-semibold w-full h-max py-3 bg-purple-500 text-purple-50  disabled:bg-purple-50 disabled:border-2 border-purple-400 " + open.className}>
-           { !loading ? <span className="flex gap-3 items-center justify-center" > Konfirmasi <ArrowRight/></span> : <span className="flex gap-3 items-center justify-center" > loading <ClipLoader/> </span>}
+          <button disabled={loading} className={"text-4xl flex gap-3 items-center justify-center self-center transition rounded-md font-semibold w-full h-max py-3 bg-purple-500 text-purple-50 disabled:text-purple-950 disabled:bg-purple-50 disabled:border-2 border-purple-400 " + open.className}>
+           { !loading ? <span className="flex gap-3 items-center justify-center" > Konfirmasi <ArrowRight/></span> : <span className="flex gap-3 items-center text-purple-800 justify-center" > loading <ClipLoader/> </span>}
           </button>
         </motion.form>
       )}
