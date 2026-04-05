@@ -63,6 +63,6 @@ export async function POST(Request) {
   );
 
   if (error) console.log(error);
-  const response = await snap.createTransaction(parameter);
+  const response = await snap.createTransaction(parameter);  
   return NextResponse.json(response.token);
 }

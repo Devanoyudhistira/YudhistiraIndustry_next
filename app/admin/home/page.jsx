@@ -25,10 +25,10 @@ export default async function Admin() {
                 <h4 className="text-md font-medium text-zinc-900 tracking-wide" > pengelolaan toko [nama toko] pribadi </h4>
             </div>
             <div className="w-screen px-6 grid  grid-cols-2 gap-5 overflow-x-auto overflow-y-hidden h-auto py-2 " >
-                <Infocard icon={<GraphUp size={20} className="text-green-500" />} invoname={"total pemasukan"} invovalue={uangtotal} />
-                <Infocard icon={<CreditCard size={20} className="text-green-500" />} invoname={"jumlah pembelian"} invovalue={uangpembayaran.data.length} />
-                <Infocard icon={<CashCoin size={20} className="text-green-500" />} invoname={"barang terlaris"} invovalue={popularitem.data[0] ? popularitem.data[0].nama_barang : "belum ada"} />
-                <Infocard icon={<CurrencyDollar size={20} className="text-green-600" />} invoname={"total pengeluaran"} invovalue={"50.000.000"} />
+                <Infocard icon={<GraphUp size={20} className="text-purple-500" />} invoname={"total pemasukan"} invovalue={uangtotal} />
+                <Infocard icon={<CreditCard size={20} className="text-purple-500" />} invoname={"jumlah pembelian"} invovalue={uangpembayaran.data.length} />
+                <Infocard icon={<CashCoin size={20} className="text-purple-500" />} invoname={"barang terlaris"} invovalue={popularitem.data[0] ? popularitem.data[0].nama_barang : "belum ada"} />
+                <Infocard icon={<CurrencyDollar size={20} className="text-purple-600" />} invoname={"total pengeluaran"} invovalue={"50.000.000"} />
             </div>
             <div className="flex flex-col  gap-2 w-screen h-max px-2 py-1 mt-4" >
                 <div className="w-full flex items-center justify-evenly " >
@@ -39,12 +39,12 @@ export default async function Admin() {
                     invoicedata.data.map(e =>
                         <Invoiceitem namaitem={e.nama_barang} user={e.nama} tanggal={moment(e.created_at).format("HH-MM-YYYY")} key={e.orderid} status={e.status === "settlement" ? "lunas" : e.status} harga={e.pembayaran} />)}
             </div>
-            <div className="w-full mt-1 overflow-x-auto scrollbar h-max py-1 px-1 flex flex-col gap-2 shrink-0" >
+            <div className="w-full mt-1 scrollbar h-max py-1 px-1 flex flex-col gap-2 shrink-0" >
                 <div className="w-full flex justify-between px-2 items-center " >
                     <h1 className="text-xl font-semibold" >Barang Populer</h1>
                     <Link href={"/admin/inventory"} className="text-md font-medium " > lihat semua </Link>
                 </div>
-                <div className="flex gap-3" >          
+                <div className="flex gap-3 overflow-x-auto" >          
                     {popularitem.data.map(e => <Popularitem key={e.id} gambar={e.Product_image.trimEnd()} nama={e.nama_barang} harga={e.harga} sold={e.product_number} /> )}                                                          
                 </div>
             </div>

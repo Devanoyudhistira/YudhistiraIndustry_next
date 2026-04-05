@@ -15,13 +15,13 @@ export default function Footeritem({ text, icon }) {
     return (
         <Link href={`/admin/${text}`} >
             <motion.button
-                whileHover={{ scale: 1.1, color: "#05df72" }}
-                whileTap={{ scale: 1.1, color: "#05df72" }}
+                whileHover={{ scale: 1.1, color: "#59168b" }}
+                whileTap={{ scale: 1.1, color: "#59168b" }}
                 transition={{ type: "spring",duration:'0.05', stiffness: 300}}
                 onTapStart={() => setTapped(true)}
                 onTap={() => {setTapped(false)}}
                 onTapCancel={() => setTapped(false)}
-                className={`footerbutton ${path === text ?  "text-green-400" : "text-gray-900"} `}
+                className={`footerbutton ${path === text ?  "text-purple-400" : "text-gray-900"} `}
             >
                 <motion.span
                     animate={tapped ? { y: -12,rotate:40} : { y: 0 }}

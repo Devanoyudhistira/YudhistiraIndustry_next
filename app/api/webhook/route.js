@@ -12,23 +12,8 @@ export async function POST(req) {
   const customeremail = body.customer_details.email;
   const customernumber = body.customer_details.phone;
   const grossprice = body.gross_amount;
-  const vanumber =  body.va_numbers.va_number
-  console.log(vanumber)
+  const vanumber = body.va_numbers?.[0]?.va_number;
 
-const response = await fetch("https://api.sandbox.midtrans.com/v2/charge", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    "Authorization": "Basic " + Buffer.from("SB-Mid-server-9Wl_Ad0TXWGwu-F0X9qm65xE" + ":").toString("base64"),
-  },
-  body: JSON.stringify({
-    payment_type: "qris",
-    transaction_details: {
-      order_id: orderId,
-      gross_amount: grossprice
-    }
-  })
-}).then(res => res.text()).then(result => console.log(result)) ;
 
 
 
