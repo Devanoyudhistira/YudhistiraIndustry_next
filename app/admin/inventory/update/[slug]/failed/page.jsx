@@ -18,7 +18,6 @@ export default async function Failed({ searchParams }) {
             case "invalidtype":
                 message = "file yang anda gunakan tidak valid gunakan format jpeg, png"
                 break;
-
             default:
                 break;
         }
