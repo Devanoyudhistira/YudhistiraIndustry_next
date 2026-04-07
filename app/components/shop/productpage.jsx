@@ -14,7 +14,6 @@ export default function Productpage({ data, id,image,harga,nama }) {
     const [openuser, setopenuser] = useState(false)
     const [quantity, setquantity] = useState(1)
     const [grossprice, setgrossprice] = useState(data.harga * quantity)
-
     const baseurl = window.location.origin
 
 
