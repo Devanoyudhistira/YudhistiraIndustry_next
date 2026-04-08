@@ -5,12 +5,15 @@ import moment from "moment";
 import Emptyinventory from "@/app/components/admin/emptyinvoice";
 import Navigation from "@/app/components/admin/navigation";
 import logout from "@/app/actions/login/logout";
+import Link from "next/link";
+import { Plus } from "react-bootstrap-icons";
 
 export default async function Invoice() {
     const { data } = await supabase.from("invoice_new").select("*").order("created_at", { ascending: false })
     const { data: pending } = await supabase.from("invoice_new").select("status").order("created_at", { ascending: false }).eq("status", "pending")
     return (
-        <div className="pb-20 flex flex-col justify-center" >
+        <div className="pb-26 flex flex-col justify-center " >
+            <div className="fixed bottom-15 right-5 z-1000 text-4xl w-max h-max rounded-4xl bg-purple-500 text-gray-950" > <Link href={"/admin/invoices/create"} className="" > <Plus size={55} /> </Link> </div>
             <div className="w-full flex flex-col gap-4" >
                 <div className="w-[95%] self-center border-l-4 border-purple-600 flex flex-col items-start px-2 py-2 justify-center h-25 bg-linear-to-t from-purple-200 to-purple-100 rounded-2xl" >
                     <h1 className="text-xl font-semibold text-purple-950" >Total pembayaran </h1>
