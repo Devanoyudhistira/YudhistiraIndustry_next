@@ -15,8 +15,6 @@ export async function POST(req) {
   const vanumber = body.va_numbers?.[0]?.va_number;
 
 
-
-
   const { error } = await supabase.from("invoice_new").upsert(
     {
       orderid: orderId,

@@ -3,8 +3,7 @@ import { ArrowRight, Plus, ExclamationCircle } from "react-bootstrap-icons";
 
 
 
-export default async function Failed({ searchParams }) {
-    console.log(searchParams)
+export default async function Failed({ searchParams }) {    
     const { error } = await searchParams
     function errormessage(errortype) {
         let message = "ada error"

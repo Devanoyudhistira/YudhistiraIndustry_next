@@ -20,7 +20,7 @@ export default function Selleditem({ id, nama, stok, Terjual, gambar, harga }) {
             body: JSON.stringify({                
                 id: id,         
             }),
-        }).then(e => e.json()).then(res => console.log(res))
+        })
     }
     return (
         <div className="w-full h-max  rounded-xl  shadow-2xs  flex-col py-2" >

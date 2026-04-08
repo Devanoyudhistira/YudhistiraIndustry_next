@@ -13,7 +13,7 @@ export default function Popularitem({ id, gambar, nama, stock, terjual, tanggal,
                 <Link href={`product/${id}`} className="bg-purple-400 rounded-xl self-start ml-2.5 mt-6 text-purple-100 text-2xl px-3 font-bold shadow-xl
                 inset-shadow-2xs inset-shadow-indigo-500/50 shadow-purple-600/50" > Lihat </Link>
              </div>
-                <Image width="800" className="w-full h-full  rounded-xs object-cover object-center " src={gambar.trimEnd()} height="800" alt="popular" />
+                <Image loading="eager" width="800" className="w-full h-full  rounded-xs object-cover object-center " src={gambar.trimEnd()} height="800" alt="popular" />
             </div>        
     )
 }

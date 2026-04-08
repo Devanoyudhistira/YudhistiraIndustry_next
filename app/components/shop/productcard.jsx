@@ -13,8 +13,7 @@ const inter = Inter({})
 
 export function Shopcard({ data }) {
     const [purchaseloading, setpurchaseloading] = useState(false)
-    const [popup, setpopup] = useState(false)
-    console.log(data)
+    const [popup, setpopup] = useState(false)    
     return (
         <>
             {purchaseloading && <Backdrop> <h1 className="text-4xl font-bold text-white" > Loading </h1> </Backdrop >}
