@@ -21,7 +21,7 @@ export async function POST(Request) {
     emailpembeli,
     nomorpembeli,
     grossprice,
-  } = await Request.json();
+  } = await Request.json();  
   let parameter = {
     transaction_details: {
       order_id: Math.ceil(Math.floor(Math.random() * 1000).toString() + id),
@@ -32,7 +32,7 @@ export async function POST(Request) {
       name: produk,
       id: id,
       price: harga,
-      quantity: quantity,
+      quantity: 1,
     },
     customer_details: {
       first_name: namapembeli,
