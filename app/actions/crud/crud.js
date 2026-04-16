@@ -67,17 +67,6 @@ export async function update(prev, formdata) {
   const descproduct = formdata.get("description");
   const extension = image.name.split(".").at(-1);
   const imagevalidate = ["image/jpeg", "image/png", "image/webp"];
-  if (image.size > 6291456) {
-    redirect(`/admin/inventory/create/failed?error=imagetobig`);
-  }
-
-  if (!image || image.size === 0) {
-    redirect(`/admin/inventory/create/failed?error=imagemissing`);
-  }
-
-  if (!imagevalidate.includes(image.type)) {
-    redirect(`/admin/inventory/create/failed?error=invalidtype`);
-  }
   const finalname =
     Math.random()
       .toString(36)
